@@ -1,0 +1,29 @@
+<div class="wideContent">
+  <div class="holder">
+	<h1>Contact</h1>
+	<%= form_tag :action=> 'create' , :html => { :class=>"contactform"} do %>
+  	<div class="row">
+  	  <p><label>First name</label><%= text_field 'First Name', 'fname' %></p>
+  	  <p><label>Last name</label><%= text_field 'First Name', 'fname' %></p>
+    </div>
+    <div class="row">
+  	  <p><label>Email</label><%= email_field(:user, :address) %></p>
+  	  <p><label>Phone 2</label><%= telephone_field(:user, :phone) %></p>
+    </div>
+    <div class="row">
+  	  <p><label>Address Line 1</label><%= text_field 'First Name', 'fname' %></p>
+  	  <p><label>Address Line 2</label><%= text_field 'First Name', 'fname' %></p>
+    </div>
+    <div class="row">
+  	  <p><label>City</label><%= text_field 'First Name', 'fname' %></p>
+  	  <p><label>State</label><%= text_field 'First Name', 'fname' %></p>
+    </div>
+    <div class="row detail">
+  	  <p><label>Details</label><%= text_area(:message,'detail', :size=> '24*5') %></p>
+    </div>
+    <div class="row button">
+  	  <p><%#=f. submit "Submit"%></p>
+    </div>
+    <% end %>
+  </div>
+</div>

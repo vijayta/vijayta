@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Vijayta</title>
+  <%= stylesheet_link_tag    "reset", "style", :media => "all" %>
+  <link rel="Shortcut Icon" href="favicon.ico">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <%= javascript_include_tag "slider", 'tabs' %>
+  <%= csrf_meta_tags %>
+  <script language="javascript" type="text/javascript">
+    function showonlyone(thechosenone) {
+      $('.memberdetail').fadeOut(150);
+      $('#' + thechosenone).fadeIn(150);
+    }
+      </script>
+</head>
+<body>
+  <%= render "shared/header" %>
+  <div class="wrapper" id="container">
+	<%= yield %>
+  </div>	
+  <%= render "shared/footer" %>
+</body>
+</html>

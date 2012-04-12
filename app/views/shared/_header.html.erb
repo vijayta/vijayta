@@ -1,0 +1,10 @@
+<div id="header">
+  <div class="wrapper">
+  	<h1><a href="#" id="logo">Vijayta Panchal</a></h1>
+  	<ul class="nav">
+  	  <li class="<%= 'active' if params[:controller]== 'home'%>"><%= link_to "Home", '/', :class=>'home'%></li>
+  	  <li class="<%= 'active' if params[:controller]== 'pages'%>"><%= link_to "About me", '/pages/about', :class=>'aboutMe'%></li>
+  	  <li class="<%= 'active' if params[:controller]== 'contact'%>""><%= link_to "Contact", '/contact/index', :class=>'contact'%></li>
+  	</ul>  
+  </div>	
+</div>

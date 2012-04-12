@@ -1,0 +1,55 @@
+<div class="banner">
+  <div id="slider">
+		<ul>
+			<li id="content">
+				<div class="image"><img src="assets/img01.png" alt="" /></div>
+        <div class="right">
+          <h1>Fun At work</h1>
+          <p>Fun at Work, fantastic fun stuff to make your workplace a fun place. Put a smile on the faces of your staff with one of our hundreds of activities and ideas.</p>
+  				<p>
+  			</div>	  
+			</li>
+			<li>
+			  <div class="image"><img src="assets/img02.png" alt="" /></div>
+        <div class="right">
+          <h1>Team work</h1>
+          <p>Teamwork has become an important part of the working culture and many businesses now look at teamwork skills when evaluating a person for employment. </p>
+  				<p>
+  			</div>	 
+			</li>
+			<li>
+			  <div class="image"><img src="assets/img03.png" alt="" /></div>
+        <div class="right">
+          <h1>Working From Home</h1>
+          <p>I am working from home, but still I feel like I am not apart from office, I always get in touch with my Team mates. </p>
+  				<p>
+  			</div>	 
+			</li>
+			<li>
+			  <div class="image"><img src="assets/img04.png" alt="" /></div>
+        <div class="right">
+          <h1>I love my work</h1>
+          <p>Work is not a necessary evil. It is, instead, an intrinsic source of pleasure and value. </p>
+  				<p>
+			</li>
+		</ul>
+	</div>	
+  
+  <ul id="pagination" class="pagination">
+    <li onclick="slideshow.pos(0)">1</li>
+    <li onclick="slideshow.pos(1)">2</li>
+    <li onclick="slideshow.pos(2)">3</li>
+    <li onclick="slideshow.pos(3)">4</li>
+	</ul>
+  <script type="text/javascript">
+  var slideshow=new TINY.slider.slide('slideshow',{
+  	id:'slider',
+  	auto:3,
+  	resume:true,
+  	vertical:false,
+  	navid:'pagination',
+  	activeclass:'current',
+  	position:0
+  });
+  </script>
+</div>

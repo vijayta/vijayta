@@ -1,0 +1,111 @@
+/* DealDey Stylesheet By Vijayta Panchal */
+
+/********** General ***********/
+body{ background:  url(bg.jpeg) no-repeat fixed left top; font-family: arial, sans-serif; font-size: 13px; line-height: 17px; color: #3f3f3f; }
+a { color: #db1526; }
+.unbold { font-weight: normal; }
+.nofloat { float: none !important; }
+.fl { float: left; }
+.fr { float: right !important; }
+.cfl { clear: left; }
+.cfb { clear: both; height: 1px; }
+.bold { font-weight: bold; }
+.bu { font-weight: bold; text-decoration: underline; } 
+.b0 { border: 0 !important; }
+.tac{ text-align: center; }
+
+
+
+/**** Flash Message *****/
+#flash .error, #flash .notice, #flash .alert , #deal_errors{ font-weight: bold; padding: 5px 10px; margin: 10px 0px 0px; }
+#flash .notice { background-color: #E3FFEE; border:1px solid #5CAA5C; color: #058B2B; }
+#flash .error, #deal_errors { background-color:#FFEBE8; border:1px solid #DD3C10; color: #C50505; }
+#flash .alert { background-color: #FFF9D7; border:1px solid #E2C822; color: #333; }
+
+
+.wrapper { width: 1000px; margin: 0 auto; position: relative; }
+
+/********* Header **********/  
+#header { background: url(bg_header.png) repeat-x  left top; overflow: hidden; height: 69px; }
+#header h1 { float: left; }
+#header h1 a { float: left; background: url(logo.png) no-repeat left top; width: 184px; height: 67px; text-indent: -9999px; }
+#header .nav { float: right; border-right: 1px solid #6abbe3;border-left: 1px solid #ddebf3;}
+#header .nav li { float: left;  }
+#header .nav li a { height: 67px; line-height: 67px; padding: 0 30px; border-left: 1px solid #6abbe3; border-right: 1px solid #ddebf3; float: left; background: url(text.png) no-repeat left top; text-indent: -9999px; }
+#header .nav li a.home { background-position: 30px 26px; width: 47px; }
+#header .nav li a.aboutMe { background-position: -77px 26px; width: 77px; }
+#header .nav li a.contact { background-position: -215px 26px; width: 66px; }
+#header .nav li.active, #header .nav li:hover { background: url(bg_active_nav.png) repeat-x left top; }
+#header .nav li.active a.home, #header .nav li:hover a.home { background-position: 30px -19px; }
+#header .nav li.active a.aboutMe, #header .nav li:hover a.aboutMe { background-position: -77px -19px; }
+#header .nav li.active a.contact, #header .nav li:hover a.contact { background-position: -215px -19px; }
+
+#container { overflow: hidden; margin: 20px auto; width: 1020px; }
+
+#container .banner {  background: #cce2ef; border: 1px solid #9BA8B0; height: 390px; margin: 20px 0; border-radius: 5px; box-shadow: 0 0 3px 3px #98b8c4; -moz-box-shadow: 0 0 3px 3px #98b8c4; -web-box-shadow: 0 0 3px 3px #98b8c4; margin: 10px 5px 20px 10px; position: relative; }
+#container .banner .right { float: left; width: 390px;  position: relative; height: 390px;}
+#container .banner .right h1 { font-size: 40px; color: #054565; font-family: 'Droid Sans', arial; font-weight: normal; border: 0; line-height: 44px; text-transform: uppercase; margin: 100px 0 20px; }
+#container .banner .right p { line-height: 19px; font-size: 14px; color: #515151; }
+#container .banner .pagination { float: right; position: absolute; bottom: 20px; right: 25px; }
+#container .banner .pagination li { background: url(circle.png) no-repeat right top; width: 17px; height: 17px; float: left; color: #fff; text-align: center; font-size: 11px; margin-right: 2px; float: left; line-height: 16px;   }
+#container .banner .pagination li.current { background-position: left top; }
+.sliderbutton {float:left; width:32px; padding-top:134px}
+.sliderbutton img { cursor:pointer; }
+
+#slider {float:left; position:relative; overflow:auto; width:1000px; height:390px;}
+#slider ul {position:absolute; list-style:none; top:0; left:0}
+#slider li {float:left; width:980px; height:390px; padding-right:10px;}
+#slider li .image { float: left; width: 552px; height: 390px; padding-left: 5px; }
+#slider li .image img { height: 390px; }
+
+.homeBottom { overflow: hidden; padding: 5px 0 5px 9px; margin: 30px 0;  }
+.homeBottom .block { width: 315px;background: #fff; border: 1px solid #9BA8B0; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; float: left; margin-right: 27px;  border-radius: 5px; box-shadow: 0 0 3px 3px #98b8c4; -moz-box-shadow: 0 0 3px 3px #98b8c4; -web-box-shadow: 0 0 3px 3px #98b8c4; }
+.homeBottom .block dt { text-align: center; }
+.homeBottom .block dd { padding: 10px 15px;  font-size: 15px; line-height: 19px; }
+.homeBottom .block dd .desc { height: 105px; overflow: hidden; }
+.homeBottom .block dd .readmore { font-size: 14px; font-weight: bold; text-align: right;  }
+.homeBottom .block dd .readmore a{color: #db1526; padding-right: 12px; background: url(arrow_right.png) no-repeat right 5px;}
+.last { margin: 0 !important; }
+
+.wideContent , .content .holderTop { background: #E6F1F7; border: 1px solid #9BA8B0; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; float: left; margin-right: 27px;  box-shadow: 0 0 3px 3px #98b8c4; -moz-box-shadow: 0 0 3px 3px #98b8c4; -web-box-shadow: 0 0 3px 3px #98b8c4; width: 1002px; margin: 5px; }
+.wideContent .holder { padding: 20px; }
+.wideContent  h1 { font-size: 22px; padding-bottom: 7px; border-bottom: 1px solid #ccc; color: #333; margin-bottom: 20px; }
+.wideContent .row { overflow: hidden; }
+.wideContent .row p { float: left; width: 35%; margin: 15px 30px 15px 0; }
+.wideContent .row p label {color: #444; font-size: 13px; font-weight: bold; display: block; margin-bottom: 3px; }  
+.wideContent .row p input[type=text], .wideContent .row p input[type=email], .wideContent .row p input[type=tel], .wideContent .row p select , .wideContent .row p textarea { width: 96%; padding: 8px 1%; font-size: 14px; font-family: arial; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border: 1px solid #ccc;   }
+.wideContent .detail { width: 700px; }
+.wideContent .detail textarea { width: 694px !important; }
+.aboutMe { padding: 0 20px 20px; }
+
+.aboutMe dt { float: left; width: 200px;  margin-bottom: 20px; }
+.aboutMe dt  img{ border: 1px solid #0b537e; padding: 1px;  }
+.aboutMe dd { float: left; width: 700px; margin-bottom: 20px; padding-left: 20px; }
+.aboutMe dd h3 { color: #006bab; font-size: 22px; font-family: 'Georgia', 'arial'; margin: 5px 0 8px; }
+.aboutMe dd p { padding: 7px 0 !important; font-size: 14px;  }
+.aboutMe dd .label {  padding-right: 10px; }
+.aboutMe dd h5{ color: #000; font-size: 13px;  margin-top: 5px; margin-bottom: 10px; }
+.aboutMe dd a { color: #0387d5; }
+.aboutMe .brief { clear: both; font-size: 15px; line-height: 20px;  }
+.examples { overflow: hidden; clear: both; background: #e6f1f7; border: 1px solid #9BA8B0; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px;box-shadow: 0 0 3px 3px #98b8c4; -moz-box-shadow: 0 0 3px 3px #98b8c4; -web-box-shadow: 0 0 3px 3px #98b8c4;  margin: 5px; }
+.examples .leftbar { float: left; width: 250px; background: #bcd9e7; padding: 10px 0; border-right: 1px solid #9fb9c5; }
+.examples .leftbar li { border-bottom: 1px solid #9fb9c5; }
+.examples .leftbar li:last-child { border: 0; }
+.examples .leftbar li:hover , .examples .leftbar li.active{ background: #e6f1f7; }
+.examples .leftbar li:hover a, .examples .leftbar li.active a { color:#424255; border: 0; position: relative; right: -1px; background:#e6f1f7; padding-left: 9px;   }
+.examples .leftbar li a { color: #666583; font-size: 16px;display: block; padding: 10px; }
+.content .holderTop { background: #cce2ef; margin-bottom: 30px; width: auto }
+.content .holderTop h1 { padding: 20px; font-size: 20px; }
+.content .holderTop  p { padding: 0 20px 20px; }
+.examples .rightbar { float: left; width: 680px; margin-left: 20px; padding: 20px;  }
+.examples .rightbar h2 { font-size: 18px; margin-bottom: 15px; border-bottom: 1px solid #aaa; padding-bottom: 10px;   }
+.examples .rightbar h3 { font-size: 16px; margin-top: 40px; }
+.examples .rightbar  p { margin: 10px 0; font-size: 13px; }
+/********* footer **********/  
+#footer { background: url(bg_footer.png) repeat-x left top; color: #515151;  line-height: 70px; overflow: hidden; }
+#footer .contact { float: right; margin-right: 3px;}
+#footer .copyright { float: left; padding: 0 10px;  }
+#footer .contact span { float: left; margin-right: 5px; }
+#footer .contact a { float: left; background: url(icon_share.png) no-repeat left top; width: 33px; height: 35px; text-indent: -9999px;  margin: 20px 0 0  4px; }
+#footer .contact a.tw { background-position: -35px 0; }
+#footer .contact a.mail { background-position: right 0; }
