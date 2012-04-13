@@ -2,6 +2,18 @@ Vijayta::Application.routes.draw do
   get "contact/index"
 
   get "pages/about"
+  get "pages/exercise01"
+  get "pages/exercise02"
+  get "pages/exercise03"
+  get "pages/exercise04"
+  get "pages/exercise05"
+  get "pages/exercise06"
+  get "pages/exercise07"
+  get "pages/exercise08"
+  get "pages/exercise09"
+  get "pages/exercise10"
+  get "pages/exercise11"
+  get "pages/exercise12"
 
   root :to => "home#index"
 
