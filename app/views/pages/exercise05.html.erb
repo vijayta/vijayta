@@ -1,0 +1,44 @@
+<div class="content">
+  <div class="holderTop">
+	<h1>Exercise05</h1>
+	<p>Create a list of checkbox (red, green, yellow, white, black). Now create to links "Check all" and 'none'. When you click on check all link all checkbox will be selected, and when you click on none link all checkbox will be deselected(working example is gmail).</p>
+				<h3>Solution: </h3>	 
+				<style>
+          .formField { overflow: hidden; padding: 10px 0; }
+          .formField label { float: left; width: 200px; }
+        </style>
+        <script type="text/javascript">
+          var checkItem = document.signup.list.checked;
+         
+          function checkAll(checkItem)
+          {
+          for (i = 0; i < checkItem.length; i++)
+          	{checkItem[i].checked = true ;}
+          
+          document.signup.uncheckall.checked= false;
+          document.signup.checkall.checked= true;		
+          }
+          
+          function unCheckAll(checkItem)
+          {
+          for (i = 0; i < checkItem.length; i++)
+          	{checkItem[i].checked = false ;}
+          	document.signup.uncheckall.checked=true;
+          	document.signup.checkall.checked=false;
+          }
+        </script>
+        <form method="post" action="" class="login" name="signup" >
+        <input type="checkbox" onClick="checkAll(document.signup.list)" name="checkall"> Check all
+        <ol>
+          <li><input type="checkbox" value="red" name="list"> Red</li>
+          <li><input type="checkbox" value="green" name="list"> Green</li>
+          <li><input type="checkbox" value="orange" name="list"> Orange</li>
+          <li><input type="checkbox" value="white" name="list"> White</li>
+          <li><input type="checkbox" value="black" name="list"> Black</li>
+        </ol>  
+        <input type="checkbox" onClick="unCheckAll(document.signup.list)" name="uncheckall"> none
+      </form>  
+
+	</div>	
+  </div>
+</div> 	

@@ -1,0 +1,64 @@
+<div class="content">
+  <div class="holderTop">
+	<h1>Exercise03</h1>
+	<p>First box contains list of countries and when you select a country and click on add button. Selected country will disappear from first box and appear in second button. And when you select a country from second box and click on remove button it will disappear from second box and appear in first box</p>
+				<h3>Solution: </h3>	 
+	  <script type="text/javascript">
+function SelectMoveRows(firstSel,secondSel)
+{
+    var SelID='';
+    var SelText='';
+    for (i=firstSel.options.length - 1; i>=0; i--)
+    {
+        if (firstSel.options[i].selected == true)
+        {
+            SelID=firstSel.options[i].value;
+            SelText=firstSel.options[i].text;
+            var newRow = new Option(SelText,SelID);
+            secondSel.options[secondSel.length]=newRow;
+            firstSel.options[i]=null;
+        }
+    }
+    SelectSort(secondSel);
+}
+function SelectSort(SelList){
+    var ID='';
+    var Text='';
+    for (x=0; x < SelList.length - 1; x++)
+    {
+        for (y=x + 1; y < SelList.length; y++)
+        {
+            if (SelList[x].text > SelList[y].text)
+            {
+                Text=SelList[x].text;
+                SelList[x].text=SelList[y].text;
+                SelList[y].text=Text;
+            }
+        }
+    }
+}</script>
+<form class="swapCountries" name="swapCountries">
+  <div style="float: left; width: 400px; ">
+    <select size="5" id="first" MULTIPLE name="CNL01">
+      <option>India</option>
+      <option>China</option>
+      <option>Pakistan</option>
+      <option>Nepal</option>
+      <option>Sri Lanka</option>
+    </select> <br />
+    <input type="button" value="Go"  onclick="SelectMoveRows(document.swapCountries.CNL01, document.swapCountries.CNL02)"/>
+  </div>  
+  <div style="float: left; width: 400px;" >
+    <select size="5" id ="second" MULTIPLE name="CNL02">
+      <option>America</option>
+      <option>England</option>
+      <option>Austria</option>
+      <option>Canada</option>
+      <option>Denmark</option>
+    </select>  <br />
+    <input type="button" value="Go Back" onclick="SelectMoveRows(document.swapCountries.CNL02, document.swapCountries.CNL01)"/>
+  </div>  
+</form>
+	</div>	
+  </div>
+</div> 	
