@@ -21,8 +21,8 @@
 		<div class="leftbar">
 			<ul class="tabs">
 				<li class="active"><a href="#tab1" class="cf">Signup form</a></li>
-				<li><a href="#tab2" class="cf">Popup window with user name</a></li>
-				<li><a href="#tab3" class="cf">Prompt for URL</a></li>
+				<li><a href="#tab2">Popup window with user name</a></li>
+				<li><a href="#tab3">Prompt for URL</a></li>
 				<li><a href="#tab4">Multiple selection box</a></li>
 				<li><a href="#tab5">Check all and none</a></li>
 				<li><a href="#tab6">Prompt when browser open</a></li>
@@ -39,84 +39,8 @@
 		      <p>Create a form and add JS validations to that form.When you click on 'Go' JS will check all text fields, and give an alert like "Login Id can't be empty". One alert per empty field.</p>
 			  <p>For textarea it should check for empty and min length of 50 characters. </p>
 			  <p>If any field is invalid then it should not submit the form. Also It should also confirm "receive notification"</p>
-				
 			  <h3>Solution: </h3>	 
-			  
-			    <form method="post" action="" class="login" name="signup" >
-            <h1>Signup Form</h1>
-            <div class="formField">
-              <label>First Name</label><input type="text" name="fname"/>
-            </div>  
-            <div class="formField">
-              <label>Last Name</label><input type="text" name="lname" />
-            </div>
-            <div class="formField">
-              <label>Password</label><input type="password" name="pass01" />
-            </div>  
-            <div class="formField">
-              <label>Confirm Password</label><input type="password" name="pass02" />
-            </div>  
-            <div class="formField">
-              <label>Message</label>
-              <textarea rows="5" cols="15" name="textbox"></textarea>
-            </div>  
-            <div class="formField">
-              <label>&nbsp;</label>
-              <input type="submit" value="Submit" onclick="fValid()">
-            </div>  
-          </form>  
-<script type="text/javascript">
-  function fValid ()
-  {
-    var firstName = document.signup.fname.value;
-    if(firstName=="" || firstName==null)
-      {
-        alert("You cant left First Name Blank");
-      }
-    var lastName = document.signup.lname.value;
-    if(lastName=="" || lastName==null )
-      {
-        alert("You cant left Last Name Blank");
-      }
-    var lastName = document.signup.lname.value;
-    if(lastName=="" || lastName==null )
-      {
-        alert("You cant left Last Name Blank");
-      }
-    var password01 = document.signup.pass01.value;
-    if(password01=="" || password01==null )
-      {
-        alert("You cant left Password Blank");
-      }  
-    
-    var password02 = document.signup.pass02.value;
-    if(password02=="" || password02==null )
-      {    
-        alert("You cant left Confirm Password Blank");
-        if (password01 != password02)
-      {
-        alert("Confirmation password is not matching")
-      }   
-      }
-    
-    var msg = document.signup.textbox.value;
-    if(msg.length < 50)
-    {
-      alert("Message should not be less then 50 charecter")
-    }        
-    
-    if((firstName=="" || firstName==null) || (lastName=="" || lastName==null) || (password01=="" || password01==null ) || (password02=="" || password02==null ) || (msg.length < 50))
-    {
-      confirm("Form Cannot be submit")
-    }
-    else
-    {
-      welcome=window.open("","" , "height=400 , width=400")
-      welcome.document.write("<h1>Your form is submitted</h1>");
-    }
-  }
-  
-</script>
+			  <p class="bold"><%= link_to"Click here for Solution" , '/pages/exercise01'%></a>
 			</div>
 			<div class="tab_content" id="tab2" style="display: none">
 				<h2>Popup window with user name</h2>
@@ -153,6 +77,7 @@
 			</div>
 			<div class="tab_content" id="tab7" style="display: none">
 				<h2>Check if the prompt Empty</h2>
+				
 			</div>
 			<div class="tab_content" id="tab8" style="display: none">
 				<h2>Two multiple selection box</h2>

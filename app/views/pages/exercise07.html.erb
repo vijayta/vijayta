@@ -1,76 +1,90 @@
 <div class="content">
   <div class="holderTop">
-  	<h1>Exercise06</h1>
+  	<h1>Exercise07</h1>
   	<p>Create a list of checkboxs(Sunday, Monday, Wednesday, Thursday, Tuesday, Friday, Saturday and none). Now when I start checking these checkboxs, it should not let me check more than 3 checkboxes. When I try to check on 4th checkbox it should alert me as "Only 3 days can be selected. You have already selected sunday, monday and tuesday".</p>
   	<p>Now when I click on none, all other checkboxs should be deselected. Also when 'none' is selected and I select any other option(lets assume sunday), that option(sunday) will be selected and none will be deselected.</p>
   	<h3>Solution: </h3>	 
   	<style>
-  .formField { overflow: hidden; padding: 10px 0; }
-  .formField label { float: left; width: 200px; }
+  table{ padding: 5px; }
+  th{text-align: left; width: 300px; }
+  th, td{ border-bottom: 1px solid #cfcfcf; padding: 5px 0; }
 </style>
 <script type="text/javascript">
-  var checkItem = document.signup.list.checked;
+ function addProfile()
+  {
+    var tbl = document.getElementById('contact');
+    var lastRow = tbl.rows.length;
+    var iteration = lastRow;
+    var row = tbl.insertRow(lastRow);
+    var td3 = row.insertCell(0);
+    var el3 = document.createElement('input');
+    el3.type = 'button';
+    el3.name = 'save' + iteration;
+    el3.id = 'save' + iteration;
+    el3.value = 'save';
+    el3.setAttribute('onclick', 'submitForm()');
+    td3.appendChild(el3);  
+    
+    var td2 = row.insertCell(0);
+    td2.setAttribute('id','nameField'+iteration);
+    var el2 = document.createElement('input');
+    el2.type = 'text';
+    el2.name = 'emailRow' + iteration;
+    el2.id = 'emailtRow' + iteration;
+    el2.value = 'Enter Your Email Address';
+    td2.appendChild(el2);  
+        
+    var td1 = row.insertCell(0);
+    td1.setAttribute('id','emailField'+iteration);
+    var el = document.createElement('input');
+    el.type = 'text';
+    el.name = 'txtRow' + iteration;
+    el.id = 'txtRow' + iteration;
+    el.value = 'Enter Your Name';
+    td1.appendChild(el);  
+  }
+  function removeProfile()
+  {
+    var tbl = document.getElementById('contact');
+    var lastRow = tbl.rows.length;
+    if (lastRow > 2) tbl.deleteRow(lastRow - 1);
+  }
+  
+function submitForm()
+  { 
+    var tbl = document.getElementById('contact');
+    var lastRow = tbl.rows.length;
+    var iteration = lastRow;
+    var name = document.profile01.txtRow0.value;
+    var email = document.profile01.emailRow0.value;
+    var save = "Edit/Remove";
+    i=0;
+    document.getElementById("nameField"+i).innerHTML=name;
+    document.getElementById("emailField"+i).innerHTML=email;
+    document.getElementById("saveField"+i).innerHTML=save;    
+    alert(document.getElementById("saveField"+0).value);
+    i++;
+  
+  }
  
-  function checkAll(checkItem)
-  {
-  for (i = 0; i < checkItem.length; i++)
-  	{checkItem[i].checked = true ;}
-  
-  document.signup.uncheckall.checked= false;
-  document.signup.checkall.checked= true;		
-  }
-  
-  function unCheckAll(checkItem)
-  {
-  for (i = 0; i < checkItem.length; i++)
-  	{
-  	  checkItem[i].checked = false ;
-  	}
-  	document.signup.uncheckall.checked=true;
-  	document.signup.checkall.checked=false;
-  }
-  
-  
-  
-  function checkLimit(){
-  var total = 0;
-  var max = document.signup.list.length;
-  for (var x = 0; x < max; x++) {
-  if (eval("document.signup.list[" + x + "].checked") == true) {
-      total += 1;
-      if(total > 3)
-      {
-        alert("you cant select more then 3 item at once")
-      }
-     }
-  
-  }
-  
-  for(var z=0; z < max; z++)
-  {
-  if(eval("document.signup.list[" + z + "].checked") == true){
-    document.signup.uncheckall.checked=false; 
-    document.signup.checkall.checked=false;
-  }
-  }
-  }
-  
 </script>
-<form method="post" action="" class="login" name="signup" >
-  <input type="checkbox" onClick="checkAll(document.signup.list)" name="checkall"> Check all
-  <ol>
-    <li><input type="checkbox" value="Sunday" name="list" onclick="checkLimit()"> Sunday</li>
-    <li><input type="checkbox" value="Monday" name="list" onclick="checkLimit()"> Monday</li>
-    <li><input type="checkbox" value="Tuesday" name="list" onclick="checkLimit()"> Tuesday</li>
-    <li><input type="checkbox" value="Wednessday" name="list" onclick="checkLimit()"> Wednessday</li>
-    <li><input type="checkbox" value="Thursday" name="list" onclick="checkLimit()"> Thursday</li>
-    <li><input type="checkbox" value="Friday" name="list" onclick="checkLimit()"> Friday</li>
-    <li><input type="checkbox" value="Saturday" name="list" onclick="checkLimit()"> Saturday</li>
-  </ol>  
-  <input type="checkbox" onClick="unCheckAll(document.signup.list)" name="uncheckall"> none
-</form>  
-				
 
-	</div>	
+
+  <form method="post" action="" name="profile01">
+    <table cellpadding="0" cellspacing="0" id="contact" name="contact">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Save</th>
+    </tr>  
+    <tr>
+      <td id="nameField0"><input type="text" value="Enter Your Name" id="txtRow0" name="txtRow0"/></td>
+      <td id="emailField0"><input type="text" value="Enter Your Email Address" id="emailRow0" name="emailRow0" /></td>
+      <td id="saveField0"><input type="button" value="Save" onclick="submitForm()"/></td>  
+    </tr>  
+  </table>  
+  <input type="button" value="Add new Row" onClick="addProfile()" />
+  <input type="button" value="Remove last Row" onClick="removeProfile()" />
+  </form>
   </div>
 </div> 	
