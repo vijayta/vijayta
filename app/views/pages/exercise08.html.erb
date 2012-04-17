@@ -1,76 +1,119 @@
-<div class="content">
-  <div class="holderTop">
-  	<h1>Exercise06</h1>
-  	<p>Create a list of checkboxs(Sunday, Monday, Wednesday, Thursday, Tuesday, Friday, Saturday and none). Now when I start checking these checkboxs, it should not let me check more than 3 checkboxes. When I try to check on 4th checkbox it should alert me as "Only 3 days can be selected. You have already selected sunday, monday and tuesday".</p>
-  	<p>Now when I click on none, all other checkboxs should be deselected. Also when 'none' is selected and I select any other option(lets assume sunday), that option(sunday) will be selected and none will be deselected.</p>
-  	<h3>Solution: </h3>	 
-  	<style>
-  .formField { overflow: hidden; padding: 10px 0; }
-  .formField label { float: left; width: 200px; }
+<style>
+  ul, li { list-style: none; padding: 0; margin: 0; }
+  ul li { position: relative; }
+  .active { background: #ccc; }
+  ul li ul { position: absolute; }
+  ul ul { margin: 5px 10px; } 
+  .main{height: 100px; overflow-y: scroll; width: 245px; overflow-x:hidden; }
+  #color, #movie, #drinks, #bikes{visibility: hidden; background: #ccc; margin-left: 100px; width: 120px; padding: 5px; margin-top: -20px;  position: }
 </style>
 <script type="text/javascript">
-  var checkItem = document.signup.list.checked;
- 
-  function checkAll(checkItem)
-  {
-  for (i = 0; i < checkItem.length; i++)
-  	{checkItem[i].checked = true ;}
-  
-  document.signup.uncheckall.checked= false;
-  document.signup.checkall.checked= true;		
-  }
-  
-  function unCheckAll(checkItem)
-  {
-  for (i = 0; i < checkItem.length; i++)
-  	{
-  	  checkItem[i].checked = false ;
-  	}
-  	document.signup.uncheckall.checked=true;
-  	document.signup.checkall.checked=false;
-  }
-  
-  
-  
-  function checkLimit(){
-  var total = 0;
-  var max = document.signup.list.length;
-  for (var x = 0; x < max; x++) {
-  if (eval("document.signup.list[" + x + "].checked") == true) {
-      total += 1;
-      if(total > 3)
-      {
-        alert("you cant select more then 3 item at once")
+  function showList01(){
+  var itemList = document.mainList.listItem.length;
+  for (var x = 0; x < itemList; x++) {
+  if (eval("document.mainList.listItem[0].checked") == true) {
+      document.getElementById('color').style.visibility='visible';
+      document.getElementById('first').setAttribute('class', 'active');
       }
-     }
+  else {
+    document.getElementById('color').style.visibility='hidden';
+    document.getElementById('first').setAttribute('class', '');
+  }
+  if (eval("document.mainList.listItem[1].checked") == true) {
+      document.getElementById('movie').style.visibility='visible';
+      document.getElementById('second').setAttribute('class', 'active');
+      }
+  else {
+    document.getElementById('movie').style.visibility='hidden';
+    document.getElementById('second').setAttribute('class', '');
+  }         
+  if (eval("document.mainList.listItem[2].checked") == true) {
+      document.getElementById('drinks').style.visibility='visible';
+      document.getElementById('main').style.height='130px';
+      document.getElementById('third').setAttribute('class', 'active');
+      }
+  else {
+    document.getElementById('drinks').style.visibility='hidden';
+    document.getElementById('third').setAttribute('class', '');
+  } 
+  if (eval("document.mainList.listItem[3].checked") == true) {
+      document.getElementById('bikes').style.visibility='visible';
+      document.getElementById('main').style.height='130px';
+      document.getElementById('fourth').setAttribute('class', 'active');
+    }
+      
+  else {
+    document.getElementById('bikes').style.visibility='hidden';
+    document.getElementById('fourth').setAttribute('class', '');
+  }  
   
+  if (document.mainList.listItem[1].checked==true || document.mainList.listItem[2].checked==true || document.mainList.listItem[3].checked == true)
+      {
+        document.mainList.listItem[0].checked=false;
+      }
+  if (document.mainList.listItem[0].checked==true || document.mainList.listItem[2].checked==true || document.mainList.listItem[3].checked == true)
+      {
+        document.mainList.listItem[1].checked=false;
+      }    
+  if (document.mainList.listItem[0].checked==true || document.mainList.listItem[1].checked==true || document.mainList.listItem[3].checked == true)
+      {
+        document.mainList.listItem[2].checked=false;
+      }        
+  if (document.mainList.listItem[0].checked==true || document.mainList.listItem[1].checked==true || document.mainList.listItem[2].checked == true)
+      {
+        document.mainList.listItem[3].checked=false;
+      }            
   }
-  
-  for(var z=0; z < max; z++)
-  {
-  if(eval("document.signup.list[" + z + "].checked") == true){
-    document.signup.uncheckall.checked=false; 
-    document.signup.checkall.checked=false;
   }
-  }
-  }
-  
 </script>
-<form method="post" action="" class="login" name="signup" >
-  <input type="checkbox" onClick="checkAll(document.signup.list)" name="checkall"> Check all
-  <ol>
-    <li><input type="checkbox" value="Sunday" name="list" onclick="checkLimit()"> Sunday</li>
-    <li><input type="checkbox" value="Monday" name="list" onclick="checkLimit()"> Monday</li>
-    <li><input type="checkbox" value="Tuesday" name="list" onclick="checkLimit()"> Tuesday</li>
-    <li><input type="checkbox" value="Wednessday" name="list" onclick="checkLimit()"> Wednessday</li>
-    <li><input type="checkbox" value="Thursday" name="list" onclick="checkLimit()"> Thursday</li>
-    <li><input type="checkbox" value="Friday" name="list" onclick="checkLimit()"> Friday</li>
-    <li><input type="checkbox" value="Saturday" name="list" onclick="checkLimit()"> Saturday</li>
-  </ol>  
-  <input type="checkbox" onClick="unCheckAll(document.signup.list)" name="uncheckall"> none
-</form>  
-				
-
-	</div>	
-  </div>
+<div class="content">
+  <div class="holderTop">
+  	<h1>Exercise08</h1>
+  	<p>Create a div with height 100 and scroll bars. Display a list of checkbox color, drinks, movies and bikes in this div. Now when you click on color checkbox it should display four checkboxes(red, yellow, green, blue) as a child list and color checkbox should be checked. Again when you click on color checkbox child list should be hidden. Same with movies, drink and bikes.</p>
+  	<ul>
+  	  <li>movies: [Dar, Sir] </li>
+  	  <li>drinks: [coke, pepsi, dew] </li>
+  	  <li>bikes: [V-rod, pulser, cbz]</li>
+  	</ul>  
+  	<p>* Remember: when you click on a parent checkbox and if child list checkboxes are out of visible area the div's scrollbars should scroll and child list should be visible</p>
+  	<h3>Solution: </h3>	 
+  	
+  <form method="post" name="mainList" id="mainList">
+  <div class="main" id="main">
+    <ul>
+      <li id="first">
+        <input type="checkbox" name="listItem" id="listItem" onclick="showList01()">color
+        <ul class="sub" id="color">
+          <li><input type="checkbox" name="red">red</li>
+          <li><input type="checkbox" name="green">green</li>
+          <li><input type="checkbox" name="yellow">yellow</li>
+          <li><input type="checkbox" name="blue">blue</li>
+        </ul>  
+      </li>
+     <li id="second"><input type="checkbox" name="listItem" onclick="showList01()">movies 
+        <ul class="sub" id="movie">
+          <li><input type="checkbox" name="">Darr</li>
+          <li><input type="checkbox" name="">Sir</li>
+        </ul>  
+      </li>
+     <li id="third"><input type="checkbox" name="listItem" onclick="showList01()" >drinks
+        <ul class="sub" id="drinks">
+          <li><input type="checkbox" name="">coke</li>
+          <li><input type="checkbox" name="">pepsi</li>
+          <li><input type="checkbox" name="">dew</li>
+        </ul>  
+      </li>
+      <li id="fourth"><input type="checkbox" name="listItem"  onclick="showList01()">bikes 
+        <ul class="sub" id="bikes">
+          <li><input type="checkbox" name="">V-rod</li>
+          <li><input type="checkbox" name="">pulser</li>
+          <li><input type="checkbox" name="">cbz</li>
+        </ul>  
+      </li>
+    </ul>  
+    
+  </div>  
+  </form>
+  	
+  </div>	
 </div> 	
