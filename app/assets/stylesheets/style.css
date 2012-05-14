@@ -66,7 +66,6 @@ a { color: #db1526; }
 .homeBottom .block dd .readmore { font-size: 14px; font-weight: bold; text-align: right;  }
 .homeBottom .block dd .readmore a{color: #db1526; padding-right: 12px; background: url(arrow_right.png) no-repeat right 5px;}
 .last { margin: 0 !important; }
-
 .wideContent , .content .holderTop { background: #E6F1F7; border: 1px solid #9BA8B0; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; float: left; margin-right: 27px;  box-shadow: 0 0 3px 3px #98b8c4; -moz-box-shadow: 0 0 3px 3px #98b8c4; -web-box-shadow: 0 0 3px 3px #98b8c4; width: 1002px; margin: 5px; }
 .wideContent .holder { padding: 20px; }
 .wideContent  h1 { font-size: 22px; padding-bottom: 7px; border-bottom: 1px solid #ccc; color: #333; margin-bottom: 20px; }
@@ -94,13 +93,30 @@ a { color: #db1526; }
 .examples .leftbar li:hover , .examples .leftbar li.active{ background: #e6f1f7; }
 .examples .leftbar li:hover a, .examples .leftbar li.active a { color:#424255; border: 0; position: relative; right: -1px; background:#e6f1f7; padding-left: 9px;   }
 .examples .leftbar li a { color: #666583; font-size: 16px;display: block; padding: 10px; }
-.content .holderTop { background: #cce2ef; margin-bottom: 30px; width: auto }
+.content .holderTop { background: #cce2ef; margin-bottom: 30px; width: 1002px;  }
 .content .holderTop h1 { padding: 20px; font-size: 20px; }
 .content .holderTop  p { padding: 0 20px 20px; }
 .examples .rightbar { float: left; width: 680px; margin-left: 20px; padding: 20px;  }
 .examples .rightbar h2 { font-size: 18px; margin-bottom: 15px; border-bottom: 1px solid #aaa; padding-bottom: 10px;   }
 .examples .rightbar h3 { font-size: 16px; margin-top: 40px; }
 .examples .rightbar  p { margin: 10px 0; font-size: 13px; }
+.result { color: #000; font-size: 16px;  }
+
+
+.solution { padding: 20px; overflow: hidden; }
+.solution h1 { padding: 10px 0 !important; font-size: 15px !important; font-weight: bold;  	}
+.solution h3 { font-weight: bold; color: #075c7c; font-size: 16px;  margin-bottom: 20px;  }
+.solution .formField { margin: 20px 0; width: 45%; float: left; overflow: hidden; }
+.solution .formField label  { font-weight: bold; display: block; margin-bottom: 5px; }
+.solution .formField input[type=text], .solution .formField input[type=password] , .solution .formField textarea{ border: 1px solid #aaa; width: 400px; height: 30px; line-height: 30px;  font-size: 16px; color: #333; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; }
+.solution .formField textarea { width: 400px; height: 70px; }
+.solution .button { clear: both; margin: -20px 0 20px; ;  }
+.solution input[type=submit] , .solution  input[type=button]{ background: #096e92; border: 1px solid #075c7c; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; color: #fff; font-weight: bold; font-size: 13px; padding: 5px 20px;  }
+.solution .result { padding-left: 0 !important; }
+.solution select#first, .solution select#second { width: 300px; margin-bottom: 20px; }
+.solution table input[type=text]{ border: 1px solid #aaa; width: 180px; height: 25px; line-height: 25px; font-size: 16px; color: #333; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; font-size: 12px; }
+.solution  ul { margin-bottom: 30px; }
+.solution  ul li { margin: 5px 0; }
 /********* footer **********/  
 #footer { background: url(bg_footer.png) repeat-x left top; color: #515151;  line-height: 70px; overflow: hidden; }
 #footer .contact { float: right; margin-right: 3px;}
