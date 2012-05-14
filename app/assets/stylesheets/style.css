@@ -35,12 +35,14 @@ a { color: #db1526; }
 #header .nav li a.home { background-position: 30px 26px; width: 47px; }
 #header .nav li a.aboutMe { background-position: -77px 26px; width: 77px; }
 #header .nav li a.contact { background-position: -215px 26px; width: 66px; }
+#header .nav li a.work { background-position: -344px 26px; width: 66px; }
 #header .nav li.active, #header .nav li:hover { background: url(bg_active_nav.png) repeat-x left top; }
 #header .nav li.active a.home, #header .nav li:hover a.home { background-position: 30px -19px; }
 #header .nav li.active a.aboutMe, #header .nav li:hover a.aboutMe { background-position: -77px -19px; }
 #header .nav li.active a.contact, #header .nav li:hover a.contact { background-position: -215px -19px; }
+#header .nav li.active a.work, #header .nav li:hover a.work { background-position: -344px -18px; }
 
-#container { overflow: hidden; margin: 20px auto; width: 1020px; opacity: .9; }
+#container { overflow: hidden; margin: 40px auto; width: 1020px; opacity: .9; }
 
 #container .banner {  background: #cce2ef; border: 1px solid #9BA8B0; height: 390px; margin: 20px 0; border-radius: 5px; box-shadow: 0 0 3px 3px #98b8c4; -moz-box-shadow: 0 0 3px 3px #98b8c4; -web-box-shadow: 0 0 3px 3px #98b8c4; margin: 10px 5px 20px 10px; position: relative; }
 #container .banner .right { float: left; width: 390px;  position: relative; height: 390px;}
