@@ -6,6 +6,92 @@
 		<div class="solution">
 		<h3>Solution: </h3>	 
 		
+		<script type="text/javascript">
+jQuery(document).ready(function($) {
+	var $loading = $('<div class="loading"><img src="/media/images/loading.gif" alt="" /></div>');
+	$(".default").each(function(){
+		var defaultVal = $(this).attr('title');
+		$(this).focus(function(){
+			if ($(this).val() == defaultVal){
+				$(this).removeClass('active').val('');
+			}
+		});
+		$(this).blur(function() {
+			if ($(this).val() == ''){
+				$(this).addClass('active').val(defaultVal);
+			}
+		})
+		.blur().addClass('active');
+	});
+	$('.btn-submit').click(function(e){
+		var $formId = $(this).parents('form');
+		var formAction = $formId.attr('action');
+		defaulttextRemove();
+		var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+		var urlReg = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/  ; 
+		$('li',$formId).removeClass('error');
+		$('span.error').remove();
+		$('.required',$formId).each(function(){
+			var inputVal = $(this).val();
+			var $parentTag = $(this).parent();
+			if(inputVal == ''){
+				$parentTag.addClass('error').append('<span class="error">Required field</span>');
+			}
+			if($(this).hasClass('email') == true){
+				if(!emailReg.test(inputVal)){
+					$parentTag.addClass('error').append("<span class='error'>Enter a valid email address.</span>");
+				}
+			}
+			
+			if($(this).hasClass('urlField') == true){
+				if(!urlReg.test(inputVal)){
+					$parentTag.addClass('error').append("<span class='error'>Enter a valid URL.</span>");
+				}
+			}
+		});
+		
+		
+		
+		if ($('span.error').length == "0") {
+			$formId.append($loading.clone());
+			$('fieldset',$formId).hide();
+			$.post(formAction, $formId.serialize(),function(data){
+				$('.loading').remove();
+				$formId.append(data).fadeIn();
+			});
+		}
+		e.preventDefault();
+	});
+});
+function defaulttextRemove(){
+	$('.default').each(function(){
+		var defaultVal = $(this).attr('title');
+		if ($(this).val() == defaultVal){
+			$(this).val('');
+		}
+	});
+}
+</script>
+
+		  <form id="form-contact" class="styled" action="test_submit.html" method="post">
+			  <ol>
+			    <li class="form-row">
+				  <label>Email:</label>
+				  <input id="input-email" type="text" class="text-input required email default" name="email" value="" title="Enter Your Email Address" />
+				</li>
+				<li class="form-row">
+				  <label>URL:</label>
+				  <input id="input-email" type="text" class="text-input required urlField default" name="urlField" value="" title="Enter URL" />
+				</li>
+				
+				<li class="button-row text-right">
+				  <input class="btn-submit" type="submit" value="submit" name="submit" />
+				</li>
+			  </ol>
+		  </form>
+	  </div>
+
+		
 		</div>
   	
 	
