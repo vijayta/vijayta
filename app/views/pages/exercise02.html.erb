@@ -3,12 +3,14 @@
 	<h1>Exercise02</h1>
 	<p>Create a HTML page, when it opens in Browser, it should prompt twice. Once for first name and second for last name. When you enter first and last name, it should alert you as "Hello firstname lastname."</p>
 	<p>After alert it should put that text in html page</p>
+	<div class="solution">
 	  <script type="text/javascript">
     var fname=prompt("Enter first Name");
     var lname=prompt("Enter Last Name");
     alert("Hello " + fname + " " + lname);
-    document.write("Hello " + fname + " " + lname);
+    document.write("<p class='result'><span class='bold'>Hello</span> " + fname + " " + lname+"</p>");
   </script> 
+  </div>
 	</div>	
   </div>
 </div> 	
