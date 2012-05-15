@@ -4,7 +4,22 @@
   	<p>Create a form with two textfields labeled "Enter Number" and "Result". When I enter something in first textfield and submit the form, it should write true in second textfield if entered value is numeric otherwise false. Also if entered value is not numeric, form should not be submitted.</p>
     
 	<div class="solution">
-		<h3>Solution: </h3>	 
+		<h3>Solution: </h3>	
+		<script>
+  function numVal()
+  {
+    var cVal = document.form01.cVal01.value;
+    if(cVal.match(/(^-?\d\d*\.\d*$)|(^-?\d\d*$)|(^-?\.\d\d*$)/)){
+    document.form01.result01.value = 'True';}
+    else{
+    document.form01.result01.value = 'False';}
+  }  
+  </script>
+<form id="form01" name="form01">
+  <input type="text" id="cVal01" name="cVal01" onkeyup="numVal()" value="Enter Number"/>
+  <input type="text" id="result01" name="result01" value="Result"/>
+</form>
+ 
 	</div>	
   </div>
 </div> 	
