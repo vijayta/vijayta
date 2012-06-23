@@ -8,6 +8,8 @@
 				<style>
           .formField { overflow: hidden; padding: 10px 0; }
           .formField label { float: left; width: 200px; }
+		  .login a { font-weight: bold; margin: 5px 0; display: inline-block; }
+		  .login a:hover { text-decoration: underline; }
         </style>
         <script type="text/javascript">
           var checkItem = document.signup.list.checked;
@@ -30,7 +32,8 @@
           }
         </script>
         <form method="post" action="" class="login" name="signup" >
-        <input type="checkbox" onClick="checkAll(document.signup.list)" name="checkall"> Check all
+        <!--<input type="checkbox"name="checkall"> Check all-->
+		<a name="checkall"  onClick="checkAll(document.signup.list)" > Check all </a>
         <ol>
           <li><input type="checkbox" value="red" name="list"> Red</li>
           <li><input type="checkbox" value="green" name="list"> Green</li>
@@ -38,7 +41,7 @@
           <li><input type="checkbox" value="white" name="list"> White</li>
           <li><input type="checkbox" value="black" name="list"> Black</li>
         </ol>  
-        <input type="checkbox" onClick="unCheckAll(document.signup.list)" name="uncheckall"> none
+        <a onClick="unCheckAll(document.signup.list)" name="uncheckall"> none</a>
       </form>  
 	  </div>
 	</div>	
