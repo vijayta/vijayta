@@ -42,11 +42,11 @@
   if (eval("document.signup.list[" + x + "].checked") == true) {
       total += 1;
 	  txt +=document.signup.list[x].value + ", "; 
-      if(total >= 3 || txt=="")
+      if(total > 3 || txt=="")
       {	
-       alert("you cant select more then 3 item at once you have already selected " + txt )
+       alert("you cant select more then 3 item at once you have already selected " + total + " "+ txt )
 	   document.signup.list[x].checked=false;
-       return false; 
+       return true; 
       }
      }
   
