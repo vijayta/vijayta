@@ -35,18 +35,18 @@
   
   
   function checkLimit(){
-  var total = 1;
+  var total = 0;
   var max = document.signup.list.length;
   var txt ="";
   for (var x = 0; x < max; x++) {
   if (eval("document.signup.list[" + x + "].checked") == true) {
       total += 1;
 	  txt +=document.signup.list[x].value + ", "; 
-      if(total > 3 || txt=="")
+      if(total >= 3 || txt=="")
       {	
-	   document.signup.list[x].checked=false; 
        alert("you cant select more then 3 item at once you have already selected " + txt )
-       return true; 
+	   document.signup.list[x].checked=false;
+       return false; 
       }
      }
   
