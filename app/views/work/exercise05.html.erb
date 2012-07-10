@@ -12,23 +12,16 @@
 		  .login a:hover { text-decoration: underline; }
         </style>
         <script type="text/javascript">
-          var checkItem = document.signup.list.checked;
-         
           function checkAll(checkItem)
           {
           for (i = 0; i < checkItem.length; i++)
-          	{checkItem[i].checked = true ;}
-          
-          document.signup.uncheckall.checked= false;
-          document.signup.checkall.checked= true;		
+          	checkItem[i].checked = true ;
           }
           
           function unCheckAll(checkItem)
           {
           for (i = 0; i < checkItem.length; i++)
-          	{checkItem[i].checked = false ;}
-          	document.signup.uncheckall.checked=true;
-          	document.signup.checkall.checked=false;
+          checkItem[i].checked = false ;
           }
         </script>
         <form method="post" action="" class="login" name="signup" >
