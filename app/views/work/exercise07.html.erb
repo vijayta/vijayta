@@ -1,8 +1,8 @@
 <div class="content">
   <div class="holderTop">
   	<h1>Exercise07</h1>
-  	<p>Create a list of checkboxs(Sunday, Monday, Wednesday, Thursday, Tuesday, Friday, Saturday and none). Now when I start checking these checkboxs, it should not let me check more than 3 checkboxes. When I try to check on 4th checkbox it should alert me as "Only 3 days can be selected. You have already selected sunday, monday and tuesday".</p>
-  	<p>Now when I click on none, all other checkboxs should be deselected. Also when 'none' is selected and I select any other option(lets assume sunday), that option(sunday) will be selected and none will be deselected.</p>
+  	<p>Create a table</p>
+  	<p>When you click on 'Add new row' button, it should add a new row in the table, in the name and email column there will a textfield and in the action column there will be a button save. When you enter some value in textfields and click save, values will be saved and textfields will be replaced by the values entered, and save button will be replace by edit / delete links. You should be able to delete row by clicking on the delete link, and edit value by clicking on the edit link.</p>
   	
 <div class="solution">
 	<h3>Solution: </h3>	 
@@ -18,32 +18,38 @@
     var lastRow = tbl.rows.length;
     var iteration = lastRow;
     var row = tbl.insertRow(lastRow);
+    
     var td3 = row.insertCell(0);
-    var el3 = document.createElement('input');
+    td3.setAttribute('id','saveField'+iteration);
+    var el3 = document.createElement('input');    
     el3.type = 'button';
     el3.name = 'save' + iteration;
     el3.id = 'save' + iteration;
     el3.value = 'save';
-    el3.setAttribute('onclick', 'submitForm()');
+    el3.setAttribute('onclick', 'submitForm('+iteration+')');
     td3.appendChild(el3);  
+   
+   
     
+     
     var td2 = row.insertCell(0);
-    td2.setAttribute('id','nameField'+iteration);
+    td2.setAttribute('id','emailField'+iteration);
     var el2 = document.createElement('input');
     el2.type = 'text';
     el2.name = 'emailRow' + iteration;
-    el2.id = 'emailtRow' + iteration;
+    el2.id = 'emailRow' + iteration;
     el2.value = 'Enter Your Email Address';
     td2.appendChild(el2);  
-        
-    var td1 = row.insertCell(0);
-    td1.setAttribute('id','emailField'+iteration);
+   
+    
+     var td1 = row.insertCell(0);
+    td1.setAttribute('id','nameField'+iteration);
     var el = document.createElement('input');
     el.type = 'text';
     el.name = 'txtRow' + iteration;
     el.id = 'txtRow' + iteration;
     el.value = 'Enter Your Name';
-    td1.appendChild(el);  
+    td1.appendChild(el);     
   }
   function removeProfile()
   {
@@ -51,24 +57,23 @@
     var lastRow = tbl.rows.length;
     if (lastRow > 2) tbl.deleteRow(lastRow - 1);
   }
-  
-function submitForm()
-  { 
+  function removeProfile01(b)
+  {
     var tbl = document.getElementById('contact');
-    var lastRow = tbl.rows.length;
-    var iteration = lastRow;
-    var name = document.profile01.txtRow0.value;
-    var email = document.profile01.emailRow0.value;
-    var save = "Edit/Remove";
-    i=0;
-    document.getElementById("nameField"+i).innerHTML=name;
-    document.getElementById("emailField"+i).innerHTML=email;
-    document.getElementById("saveField"+i).innerHTML=save;    
-    alert(document.getElementById("saveField"+0).value);
-    i++;
-  
+    tbl.deleteRow(b);
   }
- 
+  
+  function submitForm(a)
+  { 
+    var i=0; 
+    var name = document.getElementById('txtRow'+a).value;
+    var email = document.getElementById('emailRow'+a).value;
+    var save = "<a href='#'>Edit</a>/<a href='#' onclick='removeProfile01(" + a + ")'>Remove</a>"  ;
+    document.getElementById('nameField'+ a).innerHTML= name;
+    document.getElementById('emailField'+ a).innerHTML= email;
+    document.getElementById('saveField'+a).innerHTML=save;    
+    i++;
+  }
 </script>
 
 
@@ -80,10 +85,10 @@ function submitForm()
       <th>Save</th>
     </tr>  
     <tr>
-      <td id="nameField0"><input type="text" value="Enter Your Name" id="txtRow0" name="txtRow0"/></td>
-      <td id="emailField0"><input type="text" value="Enter Your Email Address" id="emailRow0" name="emailRow0" /></td>
-      <td id="saveField0"><input type="button" value="Save" onclick="submitForm()"/></td>  
-    </tr>  
+      <td id="nameField1"><input type="text" value="Enter Your Name" id="txtRow1" name="txtRow1"/></td>
+      <td id="emailField1"><input type="text" value="Enter Your Email Address" id="emailRow1" name="emailRow1" /></td>
+      <td id="saveField1"><input type="button" id="save1"name="save1" value="Save" onclick="submitForm(1)"/></td>  
+    </tr>
   </table>  
   <input type="button" value="Add new Row" onClick="addProfile()" />
   <input type="button" value="Remove last Row" onClick="removeProfile()" />
