@@ -1,76 +1,40 @@
 <div class="content">
   <div class="holderTop">
-  	<h1>Exercise06</h1>
-  	<p>Create a list of checkboxs(Sunday, Monday, Wednesday, Thursday, Tuesday, Friday, Saturday and none). Now when I start checking these checkboxs, it should not let me check more than 3 checkboxes. When I try to check on 4th checkbox it should alert me as "Only 3 days can be selected. You have already selected sunday, monday and tuesday".</p>
-  	<p>Now when I click on none, all other checkboxs should be deselected. Also when 'none' is selected and I select any other option(lets assume sunday), that option(sunday) will be selected and none will be deselected.</p>
-<div class="solution">
-  	<h3>Solution: </h3>	 
-  	<style>
-  .formField { overflow: hidden; padding: 10px 0; }
-  .formField label { float: left; width: 200px; }
-</style>
-<script type="text/javascript">
-  var checkItem = document.signup.list.checked;
- 
-  function checkAll(checkItem)
-  {
-  for (i = 0; i < checkItem.length; i++)
-  	{checkItem[i].checked = true ;}
-  
-  document.signup.uncheckall.checked= false;
-  document.signup.checkall.checked= true;		
-  }
-  
-  function unCheckAll(checkItem)
-  {
-  for (i = 0; i < checkItem.length; i++)
-  	{
-  	  checkItem[i].checked = false ;
-  	}
-  	document.signup.uncheckall.checked=true;
-  	document.signup.checkall.checked=false;
-  }
-  
-  
-  
-  function checkLimit(){
-  var total = 0;
-  var max = document.signup.list.length;
-  for (var x = 0; x < max; x++) {
-  if (eval("document.signup.list[" + x + "].checked") == true) {
-      total += 1;
-      if(total > 3)
-      {
-        alert("you cant select more then 3 item at once")
-      }
-     }
-  
-  }
-  
-  for(var z=0; z < max; z++)
-  {
-  if(eval("document.signup.list[" + z + "].checked") == true){
-    document.signup.uncheckall.checked=false; 
-    document.signup.checkall.checked=false;
-  }
-  }
-  }
-  
-</script>
-<form method="post" action="" class="login" name="signup" >
-  <input type="checkbox" onClick="checkAll(document.signup.list)" name="checkall"> Check all
-  <ol>
-    <li><input type="checkbox" value="Sunday" name="list" onclick="checkLimit()"> Sunday</li>
-    <li><input type="checkbox" value="Monday" name="list" onclick="checkLimit()"> Monday</li>
-    <li><input type="checkbox" value="Tuesday" name="list" onclick="checkLimit()"> Tuesday</li>
-    <li><input type="checkbox" value="Wednessday" name="list" onclick="checkLimit()"> Wednessday</li>
-    <li><input type="checkbox" value="Thursday" name="list" onclick="checkLimit()"> Thursday</li>
-    <li><input type="checkbox" value="Friday" name="list" onclick="checkLimit()"> Friday</li>
-    <li><input type="checkbox" value="Saturday" name="list" onclick="checkLimit()"> Saturday</li>
-  </ol>  
-  <input type="checkbox" onClick="unCheckAll(document.signup.list)" name="uncheckall"> none
-</form>  
-			</div>	
+  	<h1>Exercise11</h1>
+  	<p>Create a simple form with a textfield and a submit button.</p>
+	<p>When I enter a URL in this textfield and submit the form, it should alert me the domain name from the entered url. For example, if I enter http://example.com/folder/file.html, then on submitting the form it should alert something like: "Domain: example.com".</p>
+    <p>And when I enter a url with subdomain, it should alert the subdomain too. Example: If I enter http://vinsol.example.com/folder/file.html, then on submitting the form it should alert something like: "Domain: example.com, Subdomain: vinsol".</p>
+
+	<p>Basic Idea is to extract domain name and subdomain from a URL.</p>
+
+	<p>Note: Use Regular Expressions for this exercise.</p>
+    <div class="solution">
+  	  <h3>Solution: </h3>	 
+         
+     <script>
+	  function urlTest()
+	  {
+	    var cVal = document.form01.cVal01.value;
+	    if(cVal.match(/^(?:www\.)?(.*?)\.(?:com|au\.uk|co\.in)$/)) {
+	      var url = (cVal.match(/:\/\/(.[^/]+)/)[1]).replace('www.','');
+	      alert("Domain Name is  -  " + url );
+	    }
+	    else if(cVal.match(/^((http[s]?|ftp):\/)?\/?([^:\/\s]+)((\/\w+)*\/)([\w\-\.]+[^#?\s]+)(.*)?(#[\w\-]+)?$/)) {
+	      //var url = (cVal.match(/:\/\/(.[^/]+)/)[1]).replace('www.','');
+	      //alert("Sub Domain is  -  " + url );
+	      var url = cVal;
+	      var sub = url.replace(/^(www\.)?([^.]+)\.mydomain\.com/i,"$2");
+	      alert("Sub Domain is" + sub);
+	    }
+	    else if (cVal=="" || cVal==null)
+	    alert("URL field is empty")
+	  }
+	  </script>
+	<form id="form01" name="form01">
+	  <input type="text" id="cVal01" name="cVal01" placeholder="Enter URL"/>
+	  <input type="submit" onclick="urlTest()" value="go" />
+	</form>
+  	</div>	
 
 	</div>	
   </div>
