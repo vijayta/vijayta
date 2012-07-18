@@ -5,13 +5,13 @@
 	<div class="solution">
 	  <script type="text/javascript">
      var webAdd = prompt("Please enter Web URL");
-     if(webAdd=="") 
+     if(webAdd=="" || webAdd==null) 
      {
        alert("The URL you enter is Empty");
      }
      else 
       {
-        window.location = "http://" + webAdd;
+        window.open("http://" + webAdd, "", "height=450", "width=400")
       }  
     
     </script>
