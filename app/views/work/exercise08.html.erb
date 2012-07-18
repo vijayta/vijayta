@@ -1,69 +1,94 @@
 <style>
-  ul, li { list-style: none; padding: 0; margin: 0; }
+  ul, li { list-style: none; padding: 0px 0 5px; margin: 0; }
   ul li { position: relative; }
   .active { background: #ccc; }
   ul li ul { position: absolute; }
   ul ul { margin: 5px 10px; } 
   .main{height: 100px; overflow-y: scroll; width: 245px; overflow-x:hidden; }
-  #color, #movie, #drinks, #bikes{visibility: hidden; background: #ccc; margin-left: 100px; width: 120px; padding: 5px; margin-top: -20px;  position: }
+  #color, #movie, #drinks, #bikes{display: none; background: #ccc; width: 120px; padding: 5px; margin-top: -20px;  position: absolute; right: -138px; }
+  .active ul { display: block !important; }
+  .solution .outer { width: 110px; position: relative; margin-bottom: 0; }
+  .solution  .outer li { margin: 0;  }
+  .checkbox {
+	width: 15px;
+	height: 15px;
+	padding: 0 5px 0 0;
+	background: url(../assets/checkbox.png) no-repeat;
+	display: block;
+	clear: left;
+	float: left;
+	margin-top: 5px; 
+}
+input[type=checkbox].styled { opacity: 0; margin-left: -19px; display: block !important; float: left; margin-top: 5px; }
+.active .checkbox { background: url(../assets/checkbox.png) left -50px !important; width: 10px; margin-right: 5px;  }
 </style>
+<script src="../assets/custom-form-elements.js" ></script>
 <script type="text/javascript">
-  function showList01(){
-  var itemList = document.mainList.listItem.length;
-  for (var x = 0; x < itemList; x++) {
-  if (eval("document.mainList.listItem[0].checked") == true) {
-      document.getElementById('color').style.visibility='visible';
-      document.getElementById('first').setAttribute('class', 'active');
-      }
-  else {
-    document.getElementById('color').style.visibility='hidden';
-    document.getElementById('first').setAttribute('class', '');
+function unCheckAll(checkItem)
+  {
+  for (i = 0; i < checkItem.length; i++)
+  	{
+  	  checkItem[i].checked = false ;
+  	}
   }
-  if (eval("document.mainList.listItem[1].checked") == true) {
-      document.getElementById('movie').style.visibility='visible';
+  function showList01(){
+  if (document.mainList.listItem[0].checked==true) {
+    document.getElementById('main').style.height='100px';
+      document.getElementById('first').setAttribute('class', 'active');
+      document.getElementById('second').setAttribute('class', 'not_active');
+      document.getElementById('third').setAttribute('class', 'not_active');
+      document.getElementById('fourth').setAttribute('class', 'not_active');
+      document.getElementById('mainColors').setAttribute('checked', 'checked');
+      if(document.mainList.listItem[1].checked || document.mainList.listItem[2].checked || document.mainList.listItem[3].checked )
+      {
+        document.mainList.listItem[0].checked = false; 
+      }
+      
+      
+      }
+ 
+  if (document.mainList.listItem[1].checked==true) {
+      document.getElementById('main').style.height='110px';
       document.getElementById('second').setAttribute('class', 'active');
+      document.getElementById('first').setAttribute('class', 'not_active');
+      document.getElementById('third').setAttribute('class', 'not_active');
+      document.getElementById('fourth').setAttribute('class', 'not_active');
+      document.getElementById('mainMovies').setAttribute('checked', 'checked');
+      if(document.mainList.listItem[0].checked || document.mainList.listItem[2].checked || document.mainList.listItem[3].checked )
+      {
+        document.mainList.listItem[1].checked = false; 
       }
-  else {
-    document.getElementById('movie').style.visibility='hidden';
-    document.getElementById('second').setAttribute('class', '');
-  }         
-  if (eval("document.mainList.listItem[2].checked") == true) {
-      document.getElementById('drinks').style.visibility='visible';
-      document.getElementById('main').style.height='130px';
+      
+      }
+  
+  if (document.mainList.listItem[2].checked==true) {
+      document.getElementById('main').style.height='150px';
       document.getElementById('third').setAttribute('class', 'active');
+      document.getElementById('first').setAttribute('class', 'not_active');
+      document.getElementById('second').setAttribute('class', 'not_active');
+      document.getElementById('fourth').setAttribute('class', 'not_active');
+      document.getElementById('mainDrink').setAttribute('checked', 'checked');
+      if(document.mainList.listItem[0].checked || document.mainList.listItem[1].checked || document.mainList.listItem[3].checked )
+      {
+        document.mainList.listItem[2].checked = false; 
       }
-  else {
-    document.getElementById('drinks').style.visibility='hidden';
-    document.getElementById('third').setAttribute('class', '');
-  } 
-  if (eval("document.mainList.listItem[3].checked") == true) {
-      document.getElementById('bikes').style.visibility='visible';
-      document.getElementById('main').style.height='130px';
+      }
+  
+  if (document.mainList.listItem[3].checked==true) {
+      
+      document.getElementById('main').style.height='135px';
       document.getElementById('fourth').setAttribute('class', 'active');
+      document.getElementById('second').setAttribute('class', 'not_active');
+      document.getElementById('third').setAttribute('class', 'not_active');
+      document.getElementById('first').setAttribute('class', 'not_active');
+      document.getElementById('mainBikes').setAttribute('checked', 'checked');
+      if(document.mainList.listItem[1].checked || document.mainList.listItem[2].checked || document.mainList.listItem[3].checked )
+      {
+        document.mainList.listItem[0].checked = false; 
+      }
     }
       
-  else {
-    document.getElementById('bikes').style.visibility='hidden';
-    document.getElementById('fourth').setAttribute('class', '');
-  }  
   
-  if (document.mainList.listItem[1].checked==true || document.mainList.listItem[2].checked==true || document.mainList.listItem[3].checked == true)
-      {
-        document.mainList.listItem[0].checked=false;
-      }
-  if (document.mainList.listItem[0].checked==true || document.mainList.listItem[2].checked==true || document.mainList.listItem[3].checked == true)
-      {
-        document.mainList.listItem[1].checked=false;
-      }    
-  if (document.mainList.listItem[0].checked==true || document.mainList.listItem[1].checked==true || document.mainList.listItem[3].checked == true)
-      {
-        document.mainList.listItem[2].checked=false;
-      }        
-  if (document.mainList.listItem[0].checked==true || document.mainList.listItem[1].checked==true || document.mainList.listItem[2].checked == true)
-      {
-        document.mainList.listItem[3].checked=false;
-      }            
-  }
   }
 </script>
 <div class="content">
@@ -79,43 +104,45 @@
   	</ul>  
   	
   	<h3>Solution: </h3>	 
-  	
-  <form method="post" name="mainList" id="mainList">
-  <div class="main" id="main">
-    <ul>
-      <li id="first">
-        <input type="checkbox" name="listItem" id="listItem" onclick="showList01()">color
-        <ul class="sub" id="color">
-          <li><input type="checkbox" name="red">red</li>
-          <li><input type="checkbox" name="green">green</li>
-          <li><input type="checkbox" name="yellow">yellow</li>
-          <li><input type="checkbox" name="blue">blue</li>
-        </ul>  
-      </li>
-     <li id="second"><input type="checkbox" name="listItem" onclick="showList01()">movies 
-        <ul class="sub" id="movie">
-          <li><input type="checkbox" name="">Darr</li>
-          <li><input type="checkbox" name="">Sir</li>
-        </ul>  
-      </li>
-     <li id="third"><input type="checkbox" name="listItem" onclick="showList01()" >drinks
-        <ul class="sub" id="drinks">
-          <li><input type="checkbox" name="">coke</li>
-          <li><input type="checkbox" name="">pepsi</li>
-          <li><input type="checkbox" name="">dew</li>
-        </ul>  
-      </li>
-      <li id="fourth"><input type="checkbox" name="listItem"  onclick="showList01()">bikes 
-        <ul class="sub" id="bikes">
-          <li><input type="checkbox" name="">V-rod</li>
-          <li><input type="checkbox" name="">pulser</li>
-          <li><input type="checkbox" name="">cbz</li>
-        </ul>  
-      </li>
-    </ul>  
-    </div>
-  </div>  
-  </form>
+  <div onClick="unCheckAll(document.mainList.listItem)">	
+  	<form method="post" name="mainList" id="mainList">
+	  <div class="main" id="main">
+	    <ul class="outer">
+	      <li id="first">
+	        <input type="checkbox" name="listItem" id="mainColors" class="styled" onclick="showList01()" >color
+	        <ul class="sub" id="color">
+	          <li><input type="checkbox" name="red">red</li>
+	          <li><input type="checkbox" name="green" >green</li>
+	          <li><input type="checkbox" name="yellow">yellow</li>
+	          <li><input type="checkbox" name="blue">blue</li>
+	        </ul>  
+	      </li>
+	     <li id="second"><input type="checkbox" name="listItem" id="mainMovies" onclick="showList01()" class="styled" >movies 
+	        <ul class="sub" id="movie">
+	          <li><input type="checkbox" name="">Darr</li>
+	          <li><input type="checkbox" name="">Sir</li>
+	        </ul>  
+	      </li>
+	     <li id="third">
+	       <input type="checkbox" id="mainDrink" name="listItem" onclick="showList01()"  class="styled" >drinks
+	        <ul class="sub" id="drinks">
+	          <li><input type="checkbox" name="">coke</li>
+	          <li><input type="checkbox" name="">pepsi</li>
+	          <li><input type="checkbox" name="">dew</li>
+	        </ul>  
+	      </li>
+	      <li id="fourth"><input type="checkbox" id="mainBikes" name="listItem"  onclick="showList01()" class="styled">bikes 
+	        <ul class="sub" id="bikes">
+	          <li><input type="checkbox" name="">V-rod</li>
+	          <li><input type="checkbox" name="">pulser</li>
+	          <li><input type="checkbox" name="">cbz</li>
+	        </ul>  
+	      </li>
+	    </ul>  
+
+	  </div>  
+	  </form>
+  </div>
   	
   </div>	
 </div> 	
