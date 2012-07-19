@@ -12,27 +12,60 @@
   	  <h3>Solution: </h3>	 
          
      <script>
-	  function urlTest()
-	  {
-	    var cVal = document.form01.cVal01.value;
-	    if(cVal.match(/^(?:www\.)?(.*?)\.(?:com|au\.uk|co\.in)$/)) {
-	      var url = (cVal.match(/:\/\/(.[^/]+)/)[1]).replace('www.','');
+	  function urlTest01(){
+	    var url = document.form01.cVal01.value
+	    if(url.match(/^(?:www\.)?(.*?)\.(?:com|au\.uk|co\.in)$/)) {
+	      var url = (url.match(/:\/\/(.[^/]+)/)[1]).replace('www.','');
 	      alert("Domain Name is  -  " + url );
 	    }
-	    else if(cVal.match(/^((http[s]?|ftp):\/)?\/?([^:\/\s]+)((\/\w+)*\/)([\w\-\.]+[^#?\s]+)(.*)?(#[\w\-]+)?$/)) {
-	      //var url = (cVal.match(/:\/\/(.[^/]+)/)[1]).replace('www.','');
-	      //alert("Sub Domain is  -  " + url );
-	      var url = cVal;
-	      var sub = url.replace(/^(www\.)?([^.]+)\.mydomain\.com/i,"$2");
-	      alert("Sub Domain is" + sub);
+	    else {
+
+	    url = url.replace(new RegExp(/^\s+/),""); // START
+	    url = url.replace(new RegExp(/\s+$/),""); // END
+
+	    url = url.replace(new RegExp(/\\/g),"/");
+
+	    url = url.replace(new RegExp(/^http\:\/\/|^https\:\/\/|^ftp\:\/\//i),"");
+
+	    url = url.replace(new RegExp(/^www\./i),"");
+
+	    url = url.replace(new RegExp(/\/(.*)/),"");
+
+	    if (url.match(new RegExp(/\.[a-z]{2,3}\.[a-z]{2}$/i))) {
+	    url = url.replace(new RegExp(/\.[a-z]{2,3}\.[a-z]{2}$/i),"");
+
+
+	    } else if (url.match(new RegExp(/\.[a-z]{2,4}$/i))) {
+	    url = url.replace(new RegExp(/\.[a-z]{2,4}$/i),"");
 	    }
-	    else if (cVal=="" || cVal==null)
-	    alert("URL field is empty")
+
+
+	    var subDomain = (url.match(new RegExp(/\./g))) ? true : false;
+
+	    if(subDomain==true)
+	    {
+	      var full = document.form01.cVal01.value
+
+	    var parts = full.split('.')
+	    var sub = parts[0]
+	    var domain = parts[1]
+	    var type = parts[2]
+
+	    var newUrl = sub;
+	    var part01 = sub.split('/')
+	    var sub01 = part01[2];
+
+	    alert("Domain Name is = "+ domain +", Subdomain is = "+ sub01); 
+	    }
 	  }
+
+	  }
+
 	  </script>
+
 	<form id="form01" name="form01">
 	  <input type="text" id="cVal01" name="cVal01" placeholder="Enter URL"/>
-	  <input type="submit" onclick="urlTest()" value="go" />
+	  <input type="submit" onclick="urlTest01()" value="go" />
 	</form>
   	</div>	
 
