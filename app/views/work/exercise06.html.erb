@@ -25,20 +25,24 @@
   
   function checkLimit(){
   var total = 0;
-  var max = document.signup.list.length;
+  var max = document.signup.elements['list'].length;
   var txt ="";
   for (var x = 0; x < max; x++) {
-  if (eval("document.signup.list[" + x + "].checked") == true) {
+  if (document.signup.elements['list'][x].checked == true) {
       total += 1;
-      txt +=document.signup.list[x].value + ", "; 
-      if(total > 3 || txt=="")
+      //txt +=document.signup.list[x].value + ", "; 
+      if(total > 3)
       { 
-	   document.signup.list[x].checked=false;
+	   document.signup.elements['list'][x].checked=false;
 	   total--;
 	   
-       alert("you cant select more then 3 item at once you have already selected " + total + " " + txt);
-       return true; 
+       alert("you cant select more then 3 item at once you have already selected " + total + " : " + txt);
+       
+     
       }
+      else {
+	    txt += document.signup.elements['list'][x].value + ' '; 
+ 	  }
      }
   }
 
