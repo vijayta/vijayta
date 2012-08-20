@@ -12,21 +12,38 @@
 		  .login a:hover { text-decoration: underline; }
         </style>
         <script type="text/javascript">
+          function uncheckAll(checkItem){
+           for (i = 0; i < checkItem.length; i++)
+           {
+              checkItem[i].checked = false;
+           } 
+          }
           function checkAll(checkItem)
           {
-          for (i = 0; i < checkItem.length; i++)
-          	checkItem[i].checked = true ;
+            for (i = 0; i < checkItem.length; i++)
+            {
+              if(checkItem[i].checked == true)
+            	 {
+                checkItem[i].checked = false;
+                document.getElementById('checkall').style.display = "block";
+                document.getElementById('uncheckall').style.display = "none";
+
+              }
+              else
+                {
+                  checkItem[i].checked = true ; 
+                  document.getElementById('checkall').style.display = "none";
+                  document.getElementById('uncheckall').style.display = "block";
+                }   
+            }
           }
+          uncheckall(document.signup.list);
           
-          function unCheckAll(checkItem)
-          {
-          for (i = 0; i < checkItem.length; i++)
-          checkItem[i].checked = false ;
-          }
         </script>
         <form method="post" action="" class="login" name="signup" >
         <!--<input type="checkbox"name="checkall"> Check all-->
-		<a name="checkall"  onClick="checkAll(document.signup.list)" > Check all </a>
+		<a name="checkall"  onClick="checkAll(document.signup.list)" id="checkall"> Check all </a>
+    <a onClick="checkAll(document.signup.list)" name="uncheckall"  id="uncheckall" style="display: none;"> none</a>
         <ol>
           <li><input type="checkbox" value="red" name="list"> Red</li>
           <li><input type="checkbox" value="green" name="list"> Green</li>
@@ -34,7 +51,7 @@
           <li><input type="checkbox" value="white" name="list"> White</li>
           <li><input type="checkbox" value="black" name="list"> Black</li>
         </ol>  
-        <a onClick="unCheckAll(document.signup.list)" name="uncheckall"> none</a>
+        
       </form>  
 	  </div>
 	</div>	
