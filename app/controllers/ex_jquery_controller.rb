@@ -1,0 +1,2 @@
+class ExJqueryController < ApplicationController
+end

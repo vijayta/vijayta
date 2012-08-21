@@ -2,7 +2,7 @@ Vijayta::Application.routes.draw do
   get "work/index"
 
   get "contact/index"
-
+  get "ex_jquery/index"
   get "pages/about"
   get "work/exercise01"
   get "work/exercise02"
