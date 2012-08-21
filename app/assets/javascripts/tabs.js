@@ -13,8 +13,8 @@ $(document).ready(function() {
 
 		var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
 		$(activeTab).fadeIn(); //Fade in the active ID content
-		Cufon.replace('.leftbar .not-active .cf', {color: '#807D67'});
-                Cufon.replace('.leftbar .active .cf', {color: '#BA4B2F'});
+		//Cufon.replace('.leftbar .not-active .cf', {color: '#807D67'});
+        //Cufon.replace('.leftbar .active .cf', {color: '#BA4B2F'});
 		return false;
 	});
 
@@ -31,8 +31,8 @@ $(document).ready(function() {
 		$(".tab_content02").hide(); //Hide all tab content
 		var activeTab = $(this).attr("href"); //Find the href attribute value to identify the active tab + content
 		$(activeTab).fadeIn(); //Fade in the active ID content
-		Cufon.replace('.leftbar .not-active .cf', {color: '#807D67'});
-		Cufon.replace('.leftbar .active .cf', {color: '#BA4B2F'});
+		//Cufon.replace('.leftbar .not-active .cf', {color: '#807D67'});
+		//Cufon.replace('.leftbar .active .cf', {color: '#BA4B2F'});
 		return false;
 	});
   
@@ -48,8 +48,8 @@ $(document).ready(function() {
 		$(".tab_content03").hide(); //Hide all tab content
 		var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
 		$(activeTab).fadeIn(); //Fade in the active ID content
-		Cufon.replace('.leftbar .not-active .cf', {color: '#807D67'});
-                Cufon.replace('.leftbar .active .cf', {color: '#BA4B2F'});
+		//Cufon.replace('.leftbar .not-active .cf', {color: '#807D67'});
+        //Cufon.replace('.leftbar .active .cf', {color: '#BA4B2F'});
 		return false;
 	});
 	
@@ -74,18 +74,6 @@ $(document).ready(function() {
 	
 	
 	
-	var theLoc = $('.navigation').position().top;
-    $(window).scroll(function() {
-        if(theLoc >= $(window).scrollTop()) {
-            if($('.navigation').hasClass('fixed')) {
-                $('.navigation').removeClass('fixed');
-            }
-        } else { 
-            if(!$('.navigation').hasClass('fixed')) {
-                $('.navigation').addClass('fixed');
-            }
-        }
-  });
 
 	
 });
