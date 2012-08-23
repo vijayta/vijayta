@@ -123,6 +123,29 @@ a { color: #db1526; }
 .solution  ul li { margin: 5px 0; }
 .solution #form-contact .formField { width: 100%; float: none;  margin: 10px 0; }
 .error { color: #f00; }
+
+.ex_jquery {
+
+}
+.ex_jquery ol {
+	margin: 0 50px; 
+
+}
+.ex_jquery ol li{
+	list-style-type: decimal;
+	margin: 10px 0; 
+}
+.ex_jquery .holderTop ol{
+
+}
+.ex_jquery h4 {
+	font-weight: bold;
+	margin: 20px 0; 
+	font-size: 13px; 
+}
+.ex_jquery h5 {
+	font-weight: bold;
+} 
 /********* footer **********/  
 #footer { background: url(bg_footer.png) repeat-x left top; color: #515151;  line-height: 70px; overflow: hidden; }
 #footer .contact { float: right; margin-right: 3px;}

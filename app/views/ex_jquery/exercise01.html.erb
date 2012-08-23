@@ -1,0 +1,96 @@
+<style>
+  label {display: block;}
+  .images img { height: 100px; width: 100px; padding: 1px; border: 1px solid #333; }
+</style>
+<div class="content ex_jquery">
+  <div class="holderTop">
+  	<h1>Selecting</h1>
+      <p>Open the file /exercises/index.html in your browser. Use the file /exercises/js/sandbox.js to accomplish the following:</p>
+      <ol>
+        <li>Select all of the div elements that have a class of "module".</li>
+        <li>Come up with three selectors that you could use to get the third item in the #myList unordered list. Which is the best to use? Why?</li>
+        <li>Select the label for the search input using an attribute selector.</li>
+        <li>Figure out how many elements on the page are hidden</li>
+        <li>Figure out how many image elements on the page have an alt attribute.</li>
+        <li>Select all of the odd table rows in the table body.</li>
+      </ol> 
+  	
+  	<div class="solution">
+    	<h3>Solution: </h3>	 
+      <h4>Point one</h4>
+  	    <div>This is my <span class="bold">first</span> Line for this module. </div>
+        <div class="module">This is my  <span class="bold">second </span>Line for this module. </div>
+        <div>This is my  <span class="bold">third</span> Line for this module. </div>
+        <div class="module">This is my  <span class="bold">fourth</span> Line for this module. </div>
+        <div>This is my  <span class="bold">fifth </span>Line for this module. </div>
+        <div>This is my  <span class="bold">sixth</span> Line for this module. </div>
+        <div class="module">This is my  <span class="bold">seventh</span> Line for this module. </div>
+        <div>This is my  <span class="bold">eighth</span> Line for this module. </div>
+
+      <h4>Point Two</h4>  
+        <ul id="myList">
+          <li id="one">List Item 01</li>
+          <li id="two">List Item 02</li>
+          <li id="three">List Item 03</li>
+          <li id="four">List Item 04</li>
+          <li id="five">List Item 05</li>
+          <li id="six">List Item 06</li>
+        </ul>  
+        <h5>Explaination</h5>
+          <p>
+            $('#three').css('color','#00f').text('this is third list item');<br />
+            <span class="note">This Search methode is fastest as it will search directly from ID.</span>
+          </p>
+          <p>
+            $('#myList #three');<br />
+            <span class="note">This will take a long loading time as compared first</span>
+          </p>
+          <p>
+            $('#myList li:eq(2)');<br />
+            <span class="note">This can be use when we dont have IDs for item also using this we can select preveous, next, parent and child etc. item of this selected one.</span>
+          </p> 
+
+          <h4>Point three</h4>
+          <p><label for="first_name">First Name</label><input type="text" id="first_name" /></p>
+          <p><label for="last_name">Last Name</label><input type="text" id="last_name" /></p> 
+
+          <h4>Point four</h4>
+          <div class="visible">Visible</div>
+          <div class="hidden" style="display:none;">hiddentext</div>
+          <div class="visible">Visible</div>
+          <div class="hidden"  style="display:none;">hidden</div>
+          <div class="visible">Visible</div>
+          <input type="button" value="click me to count hidden elements" id="button01"/>
+
+          <h4>Point Five</h4>
+          <div class="images">
+            <%= image_tag"f1.jpg" , :alt=>"Nice Flower"%>
+            <%= image_tag"f2.jpg" , :alt=>"Nice Flower"%>
+            <%= image_tag"f3.jpg" %>
+            <%= image_tag"f4.jpg" , :alt=>"Nice Flower"%>
+            <%= image_tag"f1.jpg" %>
+            <div><input type="button" value="click me to count Alt " id="button02"/></div>
+          </div>  
+
+  </div>
+
+
+  </div>
+</div> 	
+<script>
+  $('div.module').css('textDecoration', 'underline');
+  $('#three').css('color','#00f').text('this is third list item');
+  $('#myList #three');
+  $('#myList li:eq(2)');
+  $("label[for='first_name']").css('color','red')
+  $(function(){
+    function clickme(one){
+      count = $('div').filter(':hidden').length;
+      alert(count);  
+    }
+    $('#button01').click(clickme);
+  });
+  
+      
+
+</script>  
