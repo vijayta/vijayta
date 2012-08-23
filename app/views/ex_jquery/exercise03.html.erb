@@ -1,0 +1,39 @@
+<style>
+  .images img { height: 100px; width: 100px; padding: 1px; border: 1px solid #333; }
+</style>
+<div class="content ex_jquery">
+  <div class="holderTop">
+  	<h1>Traversing</h1>
+      <p>Open the file /exercises/index.html in your browser. Use the file /exercises/js/sandbox.js to accomplish the following:</p>
+        <ol>
+          <li>Select all of the image elements on the page; log each image's alt attribute.</li>
+          <li>Select the search input text box, then traverse up to the form and add a class to the form.</li>
+          <li>Select the list item inside #myList that has a class of "current" and remove that class from it; add a class of "current" to the next list item.</li>
+          <li>Select the select element inside #specials; traverse your way to the submit button.</li>
+          <li>Select the first list item in the #slideshow element; add the class "current" to it, and then add a class of "disabled" to its sibling elements.</li>
+        </ol> 
+  	<div class="solution">
+    	<h3>Solution: </h3>	 
+      <h4>Point one</h4>
+  	    <div class="images">
+            <img src="/assets/f1.jpg" alt="nice flower"/>
+            <img src="/assets/f2.jpg"  />
+            <img src="/assets/f3.jpg" alt="nice flower"/>
+            <img src="/assets/f4.jpg"  />
+            <img src="/assets/f1.jpg" alt="nice flower"/>
+            <img src="/assets/f2.jpg"  alt="nice flower"/>
+            <img src="/assets/f3.jpg"/>
+            <img src="/assets/f4.jpg"/>
+          </div>  
+
+     </div>
+
+
+  </div>
+</div> 	
+<script>
+  $('img').each(function(i){
+    var $img = $(this);
+    console.log($img.attr('alt'));
+  });
+</script>  

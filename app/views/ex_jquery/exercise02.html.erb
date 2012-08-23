@@ -1,0 +1,63 @@
+<style>
+  .images img { height: 100px; width: 100px; padding: 1px; border: 1px solid #333; }
+  .current { color: #681042; font-weight: bold;}
+</style>
+<div class="content ex_jquery">
+  <div class="holderTop">
+  	<h1>Traversing</h1>
+      <p>Open the file /exercises/index.html in your browser. Use the file /exercises/js/sandbox.js to accomplish the following:</p>
+        <ol>
+          <li>Select all of the image elements on the page; log each image's alt attribute.</li>
+          <li>Select the search input text box, then traverse up to the form and add a class to the form.</li>
+          <li>Select the list item inside #myList that has a class of "current" and remove that class from it; add a class of "current" to the next list item.</li>
+          <li>Select the select element inside #specials; traverse your way to the submit button.</li>
+          <li>Select the first list item in the #slideshow element; add the class "current" to it, and then add a class of "disabled" to its sibling elements.</li>
+        </ol> 
+  	<div class="solution">
+    	<h3>Solution: </h3>	 
+      <h4>Point one</h4>
+  	    <div class="images">
+            <img src="/assets/f1.jpg" alt="nice flower"/>
+            <img src="/assets/f2.jpg"  />
+            <img src="/assets/f3.jpg" alt="nice flower"/>
+            <img src="/assets/f4.jpg"  />
+            <img src="/assets/f1.jpg" alt="nice flower"/>
+            <img src="/assets/f2.jpg"  alt="nice flower"/>
+            <img src="/assets/f3.jpg"/>
+            <img src="/assets/f4.jpg"/>
+          </div>  
+
+          <h4>Point Two</h4>
+          <form>
+            <input type="text" id="search" placeholder="Serch text" name="search_field"/>
+            <input type="button" id="btnSearch" value="click me add class for form" />
+          </form>  
+
+          <h4>Point Three</h4>
+          <ul id="myList">
+            <li class="current">Lorem Ipsum</li>
+            <li>Doller</li>
+            <li>Set ament</li>
+            <li>a Little Lazy </li>
+            <li>Brown fox jumping</li>
+            <li>over the tree.</li>
+          </ul>  
+          <input type="button" id="move" value="move class current to next item" />
+     </div>
+
+
+  </div>
+</div> 	
+<script>
+  $(document).ready(function(){
+    function form01(){
+      $("#search").closest('form').addClass('SearchForm');
+    }
+    $('#btnSearch').click(form01);
+
+    function moveClass(){
+      $("li.current").removeClass('current').next().addClass('current');
+    }
+    $('#move').click(moveClass);
+  });
+</script>  
