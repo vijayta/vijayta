@@ -27,6 +27,7 @@
             <img src="/assets/f3.jpg"/>
             <img src="/assets/f4.jpg"/>
           </div>  
+          <div><input type="submit" id="imageTag" value="See out put" /></div>
 
           <h4>Point Two</h4>
           <form>
@@ -43,7 +44,7 @@
             <li>Brown fox jumping</li>
             <li>over the tree.</li>
           </ul>  
-          <input type="button" id="move" value="move class current to next item" />
+          <input type="button" id="imageTag" value="see output" />
 
           <h4>Point Four</h4>
           <form id="specials">
@@ -72,6 +73,15 @@
 </div> 	
 <script>
   $(document).ready(function(){
+
+    function data01(){
+      $('img').each(function(i) {
+        var img01 = $(this);
+        console.log(img01.attr('alt'));
+        });
+    }  
+    $('#imageTag').click(data01);
+
     function form01(){
       $("#search").closest('form').addClass('SearchForm');
     }
