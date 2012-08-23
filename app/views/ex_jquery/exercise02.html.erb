@@ -1,6 +1,7 @@
 <style>
   .images img { height: 100px; width: 100px; padding: 1px; border: 1px solid #333; }
   .current { color: #681042; font-weight: bold;}
+  .disabled {opacity: .5; }
 </style>
 <div class="content ex_jquery">
   <div class="holderTop">
@@ -43,6 +44,27 @@
             <li>over the tree.</li>
           </ul>  
           <input type="button" id="move" value="move class current to next item" />
+
+          <h4>Point Four</h4>
+          <form id="specials">
+            <select>
+              <option>one</option>
+              <option>two</option>
+              <option>three</option>
+              <option>four</option>
+            </select>
+          </form>  
+          <input type="button" id="btnSubmit" value="Submit" />
+
+          <h4>Point Five</h4>
+          <ul id="slideshow">
+            <li>Itme one</li>
+            <li>Itme two</li>
+            <li>Itme three</li>
+            <li>Itme four</li>
+            <li>Itme five</li>
+          </ul>  
+          <input type="button" id="show" value="See output" />
      </div>
 
 
@@ -59,5 +81,16 @@
       $("li.current").removeClass('current').next().addClass('current');
     }
     $('#move').click(moveClass);
+
+    function submit01(){
+      $("#specials select").parent().next().find('#btnSubmit');
+      alert("form is submitted");
+    }
+    $('#btnSubmit').click(submit01);
+
+    function show01(){
+      $("#slideshow li:eq(0)").addClass("current").siblings().addClass("disabled");
+    }
+    $('#show').click(show01);
   });
 </script>  
