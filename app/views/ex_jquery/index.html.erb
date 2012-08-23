@@ -2,7 +2,9 @@
   	<div class="examples">
 		<div class="leftbar">
 			<ul class="tabs">
-				<li class="active"><a href="#tab1" class="cf">Selecting</a></li>
+				<li><a href="#tab1" class="cf">Selecting</a></li>
+				<li><a href="#tab2" class="cf">Traversing</a></li>
+				<li><a href="#tab3" class="cf">Manipulating</a></li>
 				
 			</ul>
 		</div>
@@ -21,6 +23,35 @@
 			  <h3>Solution: </h3>	 
 			  <p class="bold"><%= link_to"Click here for Solution" , '/ex_jquery/exercise01'%></a>
 			</div>
+
+			<div class="tab_content" id="tab2">
+			  <h2>Traversing</h2>
+		      <p>Open the file /exercises/index.html in your browser. Use the file /exercises/js/sandbox.js to accomplish the following:</p>
+			  <ol>
+			  	<li>Select all of the image elements on the page; log each image's alt attribute.</li>
+			  	<li>Select the search input text box, then traverse up to the form and add a class to the form.</li>
+			  	<li>Select the list item inside #myList that has a class of "current" and remove that class from it; add a class of "current" to the next list item.</li>
+			  	<li>Select the select element inside #specials; traverse your way to the submit button.</li>
+			  	<li>Select the first list item in the #slideshow element; add the class "current" to it, and then add a class of "disabled" to its sibling elements.</li>
+			  </ol>	
+			  <h3>Solution: </h3>	 
+			  <p class="bold"><%= link_to"Click here for Solution" , '/ex_jquery/exercise02'%></a>
+			</div>
+
+			<div class="tab_content" id="tab3">
+			  <h2>Manipulating</h2>
+		      <p>Open the file /exercises/index.html in your browser. Use the file /exercises/js/sandbox.js to accomplish the following:</p>
+			  <ol>
+			  	<li>Add five new list items to the end of the unordered list #myList.</li>
+			  	<li>Remove the odd list items</li>
+			  	<li>Add another h2 and another paragraph to the last div.module</li>
+			  	<li>Add another option to the select element; give the option the value "Wednesday"</li>
+			  	<li>Add a new div.module to the page after the last one; put a copy of one of the existing images inside of it.</li>
+			  </ol>	
+			  <h3>Solution: </h3>	 
+			  <p class="bold"><%= link_to"Click here for Solution" , '/ex_jquery/exercise03'%></a>
+			</div>
+
 		</div>		
 	</div>
 </div>	
