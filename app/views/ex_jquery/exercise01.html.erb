@@ -1,6 +1,16 @@
 <style>
   label {display: block;}
   .images img { height: 100px; width: 100px; padding: 1px; border: 1px solid #333; }
+  table {
+    width: 100%;
+    border: 1px solid #555; 
+  }
+  table th{ font-weight: bold; padding: 5px; background: #555; color: #fff; }
+  table td { padding: 5px; border-bottom: 1px solid #555; }
+  .even {
+    background: #accfe3;
+  }
+
 </style>
 <div class="content ex_jquery">
   <div class="holderTop">
@@ -64,13 +74,70 @@
 
           <h4>Point Five</h4>
           <div class="images">
-            <%= image_tag"f1.jpg" , :alt=>"Nice Flower"%>
-            <%= image_tag"f2.jpg" , :alt=>"Nice Flower"%>
-            <%= image_tag"f3.jpg" %>
-            <%= image_tag"f4.jpg" , :alt=>"Nice Flower"%>
-            <%= image_tag"f1.jpg" %>
+            <img src="/assets/f1.jpg" alt="nice flower"/>
+            <img src="/assets/f2.jpg"  />
+            <img src="/assets/f3.jpg" alt="nice flower"/>
+            <img src="/assets/f4.jpg"  />
+            <img src="/assets/f1.jpg" alt="nice flower"/>
+            <img src="/assets/f2.jpg"  alt="nice flower"/>
+            <img src="/assets/f3.jpg"/>
+            <img src="/assets/f4.jpg"/>
             <div><input type="button" value="click me to count Alt " id="button02"/></div>
           </div>  
+
+          <h4>Pomit Six</h4>
+          <table>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Address</th>
+              <th>Phone</th>
+              <th>Email</th>
+            </tr>
+            <tr>
+              <td>Amit</td>
+              <td>Solanki</td>
+              <td>Agra</td>
+              <td>9999999999</td>
+              <td>aa@bb.com</td>
+            </tr>  
+            <tr>
+              <td>Ankit</td>
+              <td>Tomar</td>
+              <td>Delhi</td>
+              <td>8888888888</td>
+              <td>ankit@tomar.com</td>
+            </tr>  
+            <tr>
+              <td>Hemant</td>
+              <td>Khemani</td>
+              <td>Shalimar</td>
+              <td>7777777777</td>
+              <td>hemant@kk.com</td>
+            </tr>  
+            <tr>
+              <td>Ishank</td>
+              <td>Gupta</td>
+              <td>Delhi</td>
+              <td>6666666666</td>
+              <td>ishank@gupta.com</td>
+            </tr>  
+            <tr>
+              <td>Pikender</td>
+              <td>Sharman</td>
+              <td>Faridabad</td>
+              <td>5555555555</td>
+              <td>piks@gmail.com</td>
+            </tr>  
+            <tr>
+              <td>Vijayta</td>
+              <td>Panchal</td>
+              <td>Bangalore</td>
+              <td>4444444444</td>
+              <td>vj@gmail.com</td>
+            </tr>  
+          </table>  <br />
+          <div><input type="button" value="click me view even rows " id="button03"/></div>
 
   </div>
 
@@ -89,6 +156,18 @@
       alert(count);  
     }
     $('#button01').click(clickme);
+
+    function altcount(one){
+      count = $('img[alt]').length;
+      alert(count);  
+    }
+    $('#button02').click(altcount);
+
+    function even01(one){
+      count = $('tr:even').addClass('even');
+
+    }
+    $('#button03').click(even01);
   });
   
       
