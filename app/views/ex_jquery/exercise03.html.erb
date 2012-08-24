@@ -1,39 +1,98 @@
 <style>
   .images img { height: 100px; width: 100px; padding: 1px; border: 1px solid #333; }
+  h2 {
+    font-weight: bold;
+  }
+  .module p{ padding-left: 0 !important; }
 </style>
 <div class="content ex_jquery">
   <div class="holderTop">
-  	<h1>Traversing</h1>
+  	<h1>Manipulating</h1>
       <p>Open the file /exercises/index.html in your browser. Use the file /exercises/js/sandbox.js to accomplish the following:</p>
         <ol>
-          <li>Select all of the image elements on the page; log each image's alt attribute.</li>
-          <li>Select the search input text box, then traverse up to the form and add a class to the form.</li>
-          <li>Select the list item inside #myList that has a class of "current" and remove that class from it; add a class of "current" to the next list item.</li>
-          <li>Select the select element inside #specials; traverse your way to the submit button.</li>
-          <li>Select the first list item in the #slideshow element; add the class "current" to it, and then add a class of "disabled" to its sibling elements.</li>
+          <li>Add five new list items to the end of the unordered list #myList.</li>
+          <li>Remove the odd list items</li>
+          <li>Add another h2 and another paragraph to the last div.module</li>
+          <li>Add another option to the select element; give the option the value "Wednesday"</li>
+          <li>Add a new div.module to the page after the last one; put a copy of one of the existing images inside of it.</li>
         </ol> 
   	<div class="solution">
     	<h3>Solution: </h3>	 
       <h4>Point one</h4>
-  	    <div class="images">
-            <img src="/assets/f1.jpg" alt="nice flower"/>
-            <img src="/assets/f2.jpg"  />
-            <img src="/assets/f3.jpg" alt="nice flower"/>
-            <img src="/assets/f4.jpg"  />
-            <img src="/assets/f1.jpg" alt="nice flower"/>
-            <img src="/assets/f2.jpg"  alt="nice flower"/>
-            <img src="/assets/f3.jpg"/>
-            <img src="/assets/f4.jpg"/>
-          </div>  
+      <ol id="myList">
+        <li>This is point 1</li>
+        <li>This is point 2</li>
+        <li>This is point 3</li>
+        <li>This is point 4</li>
+      </ol>  
+      <div><input type="button" id="addItems" value="see output" /></div>
 
-     </div>
+      <h4>Point two</h4>
+      <ol id="myList01">
+        <li>This is point 1</li>
+        <li>This is point 2</li>
+        <li>This is point 3</li>
+        <li>This is point 4</li>
+      </ol>  
+      <div><input type="button" id="removeOdd" value="see output" /></div>
 
+      <h4>Point three</h4>
+      <div class="module">
+        <h2>This is first Heading</h2>
+        <p>This is first paragraph</p>
+        <p><%= image_tag'f1.jpg', :class=>"img01"%></p>
+      </div>  
+      <div><input type="button" id="addCont" value="see output" /></div>
+      <h4>Point five</h4>
+      
+      <div><input type="button" id="addData" value="see output" /></div>
 
+      <h4>Point four</h4>
+      <select id="mySelect">
+        <option>Sunday</option>
+        <option>Monday</option>
+        <option>Tuesday</option>
+      </select>
+      <div><input type="button" id="addoption" value="see output" /></div>
+
+      
+  	    
   </div>
 </div> 	
 <script>
-  $('img').each(function(i){
-    var $img = $(this);
-    console.log($img.attr('alt'));
+  $(document).ready(function(){
+
+    function addItems01(){
+      for(var i=1; i<=5; i++){
+       jQuery('<li>jQuery content 0'+ i +'</li>').appendTo('#myList');
+      }
+    }  
+    $('#addItems').click(addItems01);
+
+    function removeOdd(){
+      jQuery('#myList01 li:odd').remove();
+    }  
+    $('#removeOdd').click(removeOdd);
+
+    function addCont01(){
+      $('div.module').append('<h2>This is another heading added by jQuery</h2><p>This is another paragraph added by jQuery.');
+    }  
+    $('#addCont').click(addCont01);
+
+    function addoption01(){
+      jQuery('<option value="Wednesday">Wednesday</option>').appendTo('#mySelect');
+    }  
+    $('#addoption').click(addoption01);
+
+    function addData01(){
+      //var newImg01 = $('.img01').get();
+      //$('.module').append($(newImg01).clone());
+
+      $('<div class="module" />').append($('img:first').clone()).insertAfter('div.module')
+    }  
+    $('#addData').click(addData01);
+
   });
+
+  
 </script>  
