@@ -5,7 +5,13 @@
 				<li><a href="#tab1" class="cf">Selecting</a></li>
 				<li><a href="#tab2" class="cf">Traversing</a></li>
 				<li><a href="#tab3" class="cf">Manipulating</a></li>
-				
+				<li><a href="#tab4" class="cf">Create an input hint</a></li>
+				<li><a href="#tab5" class="cf">Add tabbed navigation</a></li>
+				<li><a href="#tab6" class="cf">Reveal Hidden text</a></li>
+				<li><a href="#tab7" class="cf">Create dropdown menus</a></li>
+				<li><a href="#tab8" class="cf">Create Slideshow</a></li>
+				<li><a href="#tab9" class="cf">Load External content</a></li>
+				<li><a href="#tab10" class="cf">Load content using JSON</a></li>
 			</ul>
 		</div>
 		<div class="rightbar tab_container">
@@ -51,6 +57,71 @@
 			  <h3>Solution: </h3>	 
 			  <p class="bold"><%= link_to"Click here for Solution" , '/ex_jquery/exercise03'%></a>
 			</div>
+
+			<div class="tab_content" id="tab4">
+			  <h2>Create an input hint</h2>
+		      <p>Open the file /exercises/index.html in your browser. Use the file /exercises/js/inputHint.js or work in Firebug. Your task is to use the text of the label for the search input to create "hint" text for the search input. The steps are as follows:</p>
+			  <ol>
+			  	<li>Set the value of the search input to the text of the label element</li>
+			  	<li>Add a class of "hint" to the search input</li>
+			  	<li>Remove the label element</li>
+			  	<li>Bind a focus event to the search input that removes the hint text and the "hint" class</li>
+			  	<li>Bind a blur event to the search input that restores the hint text and "hint" class if no search text was entered</li>
+			  </ol>	
+			  <h3>Solution: </h3>	 
+			  <p class="bold"><%= link_to"Click here for Solution" , '/ex_jquery/exercise04'%></a>
+			</div>
+
+			<div class="tab_content" id="tab5">
+			  <h2>Add tabbed navigation</h2>
+		      <p>Open the file /exercises/index.html in your browser. Use the file /exercises/js/tabs.js. Your task is to create tabbed navigation for the two div.module elements. To accomplish this:</p>
+			  <ol>
+			  	<li>Hide all of the modules.</li>
+			  	<li>Create an unordered list element before the first module.</li>
+			  	<li>Iterate over the modules using $.fn.each. For each module, use the text of the h2 element as the text for a list item that you add to the unordered list element.</li>
+			  	<li>Bind a click event to the list item that: 
+			  		<ol>
+			  			<li>Shows the related module, and hides any other modules</li>
+			  			<li>Adds a class of "current" to the clicked list item</li>
+			  			<li>Removes the class "current" from the other list item</li>
+			  		</ol>	
+			  	</li>
+			  	<li>Finally, show the first tab.</li>
+			  </ol>	
+			  <h3>Solution: </h3>	 
+			  <p class="bold"><%= link_to"Click here for Solution" , '/ex_jquery/exercise05'%></a>
+			</div>
+
+			<div class="tab_content" id="tab6">
+			  <h2>Reveal hidden text.</h2>		      
+			  <h3>Solution: </h3>	 
+			  <p class="bold"><%= link_to"Click here for Solution" , '/ex_jquery/exercise06'%></a>
+			</div>
+
+			<div class="tab_content" id="tab7">
+			  <h2>Create Drop down menus.</h2>		      
+			  <h3>Solution: </h3>	 
+			  <p class="bold"><%= link_to"Click here for Solution" , '/ex_jquery/exercise07'%></a>
+			</div>
+
+			<div class="tab_content" id="tab8">
+			  <h2>Create a Slideshow</h2>		      
+			  <h3>Solution: </h3>	 
+			  <p class="bold"><%= link_to"Click here for Solution" , '/ex_jquery/exercise08'%></a>
+			</div>
+
+			<div class="tab_content" id="tab9">
+			  <h2>Load External Content</h2>		      
+			  <h3>Solution: </h3>	 
+			  <p class="bold"><%= link_to"Click here for Solution" , '/ex_jquery/exercise09'%></a>
+			</div>
+
+			<div class="tab_content" id="tab10">
+			  <h2>Load content using JSON</h2>		      
+			  <h3>Solution: </h3>	 
+			  <p class="bold"><%= link_to"Click here for Solution" , '/ex_jquery/exercise10'%></a>
+			</div>
+
 
 		</div>		
 	</div>
