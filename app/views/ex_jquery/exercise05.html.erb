@@ -18,11 +18,37 @@
     <div class="solution">
       <h3>Solution: </h3>  
       
-
+      <ul id="nav">
+        <li class="active"><a href="#">CSS</a></li>
+        <li><a href="#">HTML5</a></li>
+        <li><a href="#">Javascript</a>
+            <ul>
+              <li><a href="#">Exercise one</a></li>
+              <li><a href="#">Exercise two</a></li>
+              <li><a href="#">Exercise three</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Rails</a></li>
+      </ul>  
       
         
   </div>
 </div>  
 <script>
-  
+  $(document).ready(function(){
+    $('#nav li')
+    .hover(function(){
+      $(this)
+        .addClass('hover')
+        .find('ul').show();
+    }, function(){
+      $(this)
+        .removeClass('hover')
+        .find('ul').hide();
+    }
+.click(function(){
+  alert("text");
+})
+    )
+  });  
 </script>  

@@ -1,3 +1,8 @@
+<style>
+	.solution {
+		min-height: 300px; 
+	}
+</style>
 <div class="content ex_jquery">
   <div class="holderTop">
     <h1>Create Drop down menus.</h1>
@@ -5,11 +10,54 @@
     <div class="solution">
       <h3>Solution: </h3>  
       
-
+      <ul class="topnav">
+        <li><a href="#">Home</a></li>
+        <li>
+            <a href="#" class="more">Tutorials</a>
+            <ul class="subnav">
+                <li><a href="#">Sub Nav Link</a></li>
+                <li><a href="#">Sub Nav Link</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" class="more">Resources</a>
+            <ul class="subnav">
+                <li><a href="#">Sub Nav Link</a></li>
+                <li><a href="#">Sub Nav Link</a></li>
+            </ul>
+        </li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Advertise</a></li>
+        <li><a href="#">Submit</a></li>
+        <li><a href="#">Contact Us</a></li>
+    </ul>
       
         
   </div>
 </div>  
 <script>
-  
+  $(document).ready(function(){
+
+	
+	
+	$("ul.topnav li a").click(function() { 
+		$(this).parent().find("ul.subnav").slideDown('fast').show();
+		//$(this).addClass("active"); 
+		
+		$(this).parent().hover(function() {
+		}, function(){	
+			$(this).parent().find("ul.subnav").slideUp('slow'); 
+			//$(this).removeClass("active"); 
+		});
+
+
+		
+		}).hover(function() { 
+			$(this).addClass("subhover"); 
+		}, function(){	
+			$(this).removeClass("subhover"); 
+	});
+
+
+});
 </script>  
