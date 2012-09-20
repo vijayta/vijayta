@@ -11,12 +11,27 @@
         </ol> 
   	<div class="solution">
     	<h3>Solution: </h3>	 
-      
+      <form id="searchForm">
+        <label for="searchField">Search Field</label>
+        <input type="text"  value="Search Field" id="searchField" class="searchField" name="searchField"/>
+      </form>  
 
       
   	    
   </div>
 </div> 	
 <script>
-  
+  $(document).ready(function(){
+      var $search = $('#searchForm');
+      var $text = $search.find('input#searchField');
+      var hint = $search.find('label').remove().text();
+      $text.val(hint).addClass('hint').bind('focus',function() {
+          $text.val('').removeClass('hint');
+        })
+        .bind('blur',function(){
+          if(!$.trim($text.val())){
+            $text.val(hint).addClass('hint');
+          }
+        });
+  });
 </script>  
