@@ -1,3 +1,27 @@
+<style>
+  .current {
+    display: block;
+    background: #fff; 
+  }
+  .inactive{
+    display: none;
+  }
+  .active {
+    display: inline-block; 
+  }
+  .tabs01 {
+    overflow: hidden;
+    margin-bottom: 0 !important; 
+    padding: 0; 
+  }
+  .tabs01 li {
+    float: left;
+    margin-bottom: 0 !important;
+  }
+  .tabs01 li a { display: block; padding: 8px 15px; }
+  .tabContainer01  { background: #fff; padding: 20px; }
+  .tabContainer01 p { padding: 5px 0 20px !important; }
+</style>
 <div class="content ex_jquery">
   <div class="holderTop">
     <h1>Add tabbed navigation</h1>
@@ -18,37 +42,57 @@
     <div class="solution">
       <h3>Solution: </h3>  
       
-      <ul id="nav">
-        <li class="active"><a href="#">CSS</a></li>
-        <li><a href="#">HTML5</a></li>
-        <li><a href="#">Javascript</a>
-            <ul>
-              <li><a href="#">Exercise one</a></li>
-              <li><a href="#">Exercise two</a></li>
-              <li><a href="#">Exercise three</a></li>
-            </ul>
-        </li>
-        <li><a href="#">Rails</a></li>
+      <ul class="tabs01">
+        <li><a href="#tab01">CSS</a></li>
+        <li><a href="#tab02">HTML5</a></li>
+        <li><a href="#tab03">Javascript</a>
+        <li><a href="#tab04">Rails</a></li>
+        <li><a href="#tab05">Photoshop</a></li>
       </ul>  
+      <div class="tabContainer01">
+        <div class="tab_content01" id="tab01">
+          <h1>CSS</h1>
+          <p>CSS is designed primarily to enable the separation of document content (written in HTML or a similar markup language) from document presentation, including elements such as the layout, colors, and fonts.[1] This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics, enable multiple pages to share formatting, and reduce complexity and repetition in the structural content (such as by allowing for tableless web design). CSS can also allow the same markup page to be presented in different styles for different rendering methods, such as on-screen, in print, by voice (when read out by a speech-based browser or screen reader) and on Braille-based, tactile devices. It can also be used to allow the web page to display differently depending on the screen size or device on which it is being viewed. While the author of a document typically links that document to a CSS style sheet, readers can use a different style sheet, perhaps one on their own computer, to override the one the author has specified.</p>
+        </div>  
+        <div class="tab_content01" id="tab02" >
+          <h1>HTML5</h1>
+          <p>HTML5 is not software that has to be installed but rather a new version of the language HTML. Web browsers must support this new version of HTML in order to correctly display web pages using HTML5 functions. It is upon the developers of browsers to update their software to use HTML5; users simply must allow these updates to be done on their computers, but do not have to install additional software.</p>
+        </div>  
+        <div class="tab_content01" id="tab03">
+          <h1>JAVASCRIPT</h1>
+          <p>JavaScript was formalized in the ECMAScript language standard and is primarily used in the form of client-side JavaScript, implemented as part of a Web browser in order to give enhanced user interfaces and dynamic websites. This enables programmatic access to computational objects within a host environment.</p>
+        </div>  
+        <div class="tab_content01" id="tab04">
+          <h1>RAILS</h1>
+          <p>Ruby on Rails, often shortened to Rails, is an open source full-stack web application framework for the Ruby programming language. Ruby on Rails is not to be confused with Ruby, which is a general-purpose programming language, on which Ruby on Rails runs. Ruby itself existed for more than 10 years before the first release of Ruby on Rails. Rails is a full-stack framework, meaning that it gives the web developer the ability to gather information from the web server, talk to or query the database, and render templates out of the box. As a result, Rails features a routing system that is independent of the web server.</p>
+        </div>  
+        <div class="tab_content01" id="tab05">
+          <h1>PHOTOSHOP</h1>
+          <p>Image editing software developed and manufactured by Adobe Systems Inc. Photoshop is considered one of the leaders in photo editing software. The software allows users to manipulate, crop, resize, and correct color on digital photos. The software is particularly popular amongst professional photographer.
+          </p>
+        </div>  
+      </div>  
       
         
   </div>
 </div>  
 <script>
   $(document).ready(function(){
-    $('#nav li')
-    .hover(function(){
-      $(this)
-        .addClass('hover')
-        .find('ul').show();
-    }, function(){
-      $(this)
-        .removeClass('hover')
-        .find('ul').hide();
-    }
-.click(function(){
-  alert("text");
-})
-    )
+    $(".tab_content01").hide(); 
+    $("ul.tabs01 li:first").addClass("current").show(); 
+    $(".tab_content01:first").show(); 
+    $("ul.tabs01 li").click(function() {
+    $("ul.tabs01 li").removeClass('current'); 
+    $(this).addClass('current'); 
+    $(".tab_content01").hide(); 
+    var activeTab = $(this).find("a").attr("href"); 
+    $(activeTab).fadeIn(); 
+    return false;
+  });
+
+
   });  
+
+
+
 </script>  
