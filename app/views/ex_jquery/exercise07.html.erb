@@ -37,27 +37,14 @@
 </div>  
 <script>
   $(document).ready(function(){
-
-	
-	
-	$("ul.topnav li a").click(function() { 
+	$("ul.topnav li a").hover(function() { 
 		$(this).parent().find("ul.subnav").slideDown('fast').show();
-		//$(this).addClass("active"); 
-		
+        $(this).addClass("subhover"); 
 		$(this).parent().hover(function() {
 		}, function(){	
 			$(this).parent().find("ul.subnav").slideUp('slow'); 
-			//$(this).removeClass("active"); 
+            $('ul.topnav li a').removeClass("subhover"); 
 		});
-
-
-		
-		}).hover(function() { 
-			$(this).addClass("subhover"); 
-		}, function(){	
-			$(this).removeClass("subhover"); 
-	});
-
-
+	});   
 });
 </script>  
