@@ -216,6 +216,29 @@ html ul.topnav li ul.subnav li a:hover {
 	background: #222;
 }
 
+.current {
+    display: block;
+    background: #fff; 
+  }
+  .inactive{
+    display: none;
+  }
+  .active {
+    display: inline-block; 
+  }
+  .tabs01 {
+    overflow: hidden;
+    margin-bottom: 0 !important; 
+    padding: 0; 
+  }
+  .tabs01 li {
+    float: left;
+    margin-bottom: 0 !important;
+  }
+  .tabs01 li a { display: block; padding: 8px 15px; }
+  .moduleHolder  { background: #fff; padding: 20px; }
+  .moduleHolder p { padding: 5px 0 20px !important; }
+
 /********* footer **********/  
 #footer { background: url(bg_footer.png) repeat-x left top; color: #515151;  line-height: 70px; overflow: hidden; }
 #footer .contact { float: right; margin-right: 3px;}
