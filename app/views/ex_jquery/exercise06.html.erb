@@ -11,28 +11,23 @@
       <h3>Solution: </h3>  
       <dl id="blog">
       	<dt>CSS is designed primarily</dt>
-      	<dd>CSS is designed primarily to enable the separation of document content (written in HTML or a similar markup language) from document presentation, including elements such as the layout, colors, and fonts.[1] This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics, enable multiple pages to share formatting, and reduce complexity and repetition in the structural content (such as by allowing for tableless web design). CSS can also allow the same markup page to be presented in different styles for different rendering methods, such as on-screen, in print, by voice (when read out by a speech-based browser or screen reader) and on Braille-based, tactile devices. It can also be used to allow the web page to display differently depending on the screen size or device on which it is being viewed. While the author of a document typically links that document to a CSS style sheet, readers can use a different style sheet, perhaps one on their own computer, to override the one the author has specified.</dd>
+      	<dd class="info">CSS is designed primarily to enable the separation of document content (written in HTML or a similar markup language) from document presentation, including elements such as the layout, colors, and fonts.[1] This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics, enable multiple pages to share formatting, and reduce complexity and repetition in the structural content (such as by allowing for tableless web design). CSS can also allow the same markup page to be presented in different styles for different rendering methods, such as on-screen, in print, by voice (when read out by a speech-based browser or screen reader) and on Braille-based, tactile devices. It can also be used to allow the web page to display differently depending on the screen size or device on which it is being viewed. While the author of a document typically links that document to a CSS style sheet, readers can use a different style sheet, perhaps one on their own computer, to override the one the author has specified.</dd>
       	<dt>HTML5 is not software</dt>
-      	<dd>HTML5 is not software that has to be installed but rather a new version of the language HTML. Web browsers must support this new version of HTML in order to correctly display web pages using HTML5 functions. It is upon the developers of browsers to update their software to use HTML5; users simply must allow these updates to be done on their computers, but do not have to install additional software.</dd>
+      	<dd class="info">HTML5 is not software that has to be installed but rather a new version of the language HTML. Web browsers must support this new version of HTML in order to correctly display web pages using HTML5 functions. It is upon the developers of browsers to update their software to use HTML5; users simply must allow these updates to be done on their computers, but do not have to install additional software.</dd>
       	<dt>JavaScript was formalized in the ECMAScript</dt>
-      	<dd>JavaScript was formalized in the ECMAScript language standard and is primarily used in the form of client-side JavaScript, implemented as part of a Web browser in order to give enhanced user interfaces and dynamic websites. This enables programmatic access to computational objects within a host environment.</dd>
+      	<dd class="info">JavaScript was formalized in the ECMAScript language standard and is primarily used in the form of client-side JavaScript, implemented as part of a Web browser in order to give enhanced user interfaces and dynamic websites. This enables programmatic access to computational objects within a host environment.</dd>
       	<dt>Ruby on Rails, often shortened to Rails</dt>
-      	<dd>Ruby on Rails, often shortened to Rails, is an open source full-stack web application framework for the Ruby programming language. Ruby on Rails is not to be confused with Ruby, which is a general-purpose programming language, on which Ruby on Rails runs. Ruby itself existed for more than 10 years before the first release of Ruby on Rails. Rails is a full-stack framework, meaning that it gives the web developer the ability to gather information from the web server, talk to or query the database, and render templates out of the box. As a result, Rails features a routing system that is independent of the web server.</dd>
+      	<dd class="info">Ruby on Rails, often shortened to Rails, is an open source full-stack web application framework for the Ruby programming language. Ruby on Rails is not to be confused with Ruby, which is a general-purpose programming language, on which Ruby on Rails runs. Ruby itself existed for more than 10 years before the first release of Ruby on Rails. Rails is a full-stack framework, meaning that it gives the web developer the ability to gather information from the web server, talk to or query the database, and render templates out of the box. As a result, Rails features a routing system that is independent of the web server.</dd>
       	<dt>PHOTOSHOP Image editing software developed and manufactured by Adobe Systems Inc.</dt>
-      	<dd>Image editing software developed and manufactured by Adobe Systems Inc. Photoshop is considered one of the leaders in photo editing software. The software allows users to manipulate, crop, resize, and correct color on digital photos. The software is particularly popular amongst professional photographer.</dd>
-      </dl>	
-
-      
-        
+      	<dd class="info">Image editing software developed and manufactured by Adobe Systems Inc. Photoshop is considered one of the leaders in photo editing software. The software allows users to manipulate, crop, resize, and correct color on digital photos. The software is particularly popular amongst professional photographer.</dd>
+      </dl>	   
   </div>
 </div>  
 <script>
-  
   $(document).ready(function(){
     $("#blog dd").hide(); 
     $("#blog dt").click(function(){
-    	$(this).next().slideToggle();
-    	$(this).parent().siblings().find('dd:visible').slideUp();
+    	$(this).next('dd:hidden').slideDown().siblings('dd:visible').slideUp();
     });
   });
 </script>  
