@@ -220,12 +220,6 @@ html ul.topnav li ul.subnav li a:hover {
     display: block;
     background: #fff; 
   }
-  .inactive{
-    display: none;
-  }
-  .active {
-    display: inline-block; 
-  }
   .tabs01 {
     overflow: hidden;
     margin-bottom: 0 !important; 
@@ -238,6 +232,19 @@ html ul.topnav li ul.subnav li a:hover {
   .tabs01 li a { display: block; padding: 8px 15px; }
   .moduleHolder  { background: #fff; padding: 20px; }
   .moduleHolder p { padding: 5px 0 20px !important; }
+
+  #blog {
+  	overflow: hidden;
+  }
+  #blog dt {
+  	font-weight: bold;
+  	
+  	color: #ba0000;
+  	margin-bottom: 5px; 
+  }
+  #blog dd {
+  	margin-bottom: 30px;
+  }
 
 /********* footer **********/  
 #footer { background: url(bg_footer.png) repeat-x left top; color: #515151;  line-height: 70px; overflow: hidden; }
