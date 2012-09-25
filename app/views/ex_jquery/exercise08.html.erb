@@ -1,15 +1,89 @@
 <div class="content ex_jquery">
   <div class="holderTop">
     <h1>Create a Slideshow</h1>
-      
+    <p>This is a tough one if you do not know JS basics and particularly scopes.</p>
+    <p>Open the file /exercises/index.html in your browser. Use the file /exercises/js/slideshow.js. Your task is to take a plain semantic HTML page and enhance it with JavaScript by adding a slideshow.</p>
+    <ol>
+    	<li>Move the #slideshow element to the top of the body.</li>
+    	<li>Write code to cycle through the list items inside the element; fade one in, display it for a few seconds, then fade it out and fade in the next one.</li>
+    	<li>When you get to the end of the list, start again at the beginning.</li>
+    	<li>For an extra challenge, create a navigation area under the slideshow that shows how many images there are and which image you're currently viewing. (Hint: $.fn.prevAll will come in handy for this.)</li>
+    </ol>	
     <div class="solution">
       <h3>Solution: </h3>  
-      
-
-      
-        
+      <div id="slideshow_exe">
+      	<ul id="slides">
+      		<li>
+      			<%= image_tag"css.png"%>
+      			<div class="text">
+	      			<h3>CSS is designed primarily</h3>
+	      			<p>CSS is designed primarily to enable the separation of document content (written in HTML or a similar markup language) from document presentation, including elements such as the layout, colors, and fonts.[1] This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics,</p>
+	      		</div>	
+      		</li>	
+      		<li>
+      			<%= image_tag"html.png"%>
+      			<div class="text">
+	      			<h3>HTML5 is not software</h3>
+	      			<p>HTML5 is not software that has to be installed but rather a new version of the language HTML. Web browsers must support this new version of HTML in order to correctly display web pages using HTML5 functions.</p>
+	      		</div>	
+      		</li>	
+      		<li>
+      			<%= image_tag"jquery.png"%>
+      			<div class="text">
+	      			<h3>JavaScript was formalized in the ECMAScript</h3>
+	      			<p>JavaScript was formalized in the ECMAScript language standard and is primarily used in the form of client-side JavaScript, implemented as part of a Web browser in order to give enhanced user interfaces and dynamic websites. This enables programmatic access to computational objects within a host environment.</p>
+	      		</div>	
+      		</li>	
+      	</ul>	
+      </div>	
   </div>
 </div>  
 <script>
-  
+$(document).ready(function(){
+  var timeout, manualMode = false; 
+  var $slides = $("#slides").prependTo('#slideshow_exe');
+  var $items = $slides.find('li').hide(),
+
+  $counter = $('<div class="counter"/>').insertAfter($slides),
+  total = $items.length,
+  updateCounter = function(num){
+    $counter.text(num + ' of ' + total);
+  },
+
+  getItem = function($item, trav){
+    var $returnItem = $item[trav]();
+    return $returnItem.length ?
+      $returnItem : $items[(trav=='next') ? 'first' : 'last']();
+  },
+
+  showItem = function($currentItem, $itemToShow){
+    var $itemToShow = $itemToShow || getItem($currentItem,'next');
+
+    $currentItem.fadeOut(200, function(){
+      $itemToShow.fadeIn(200,fadeCallback);
+    });
+  },
+fadeCallback = function(){
+  if(manualMode) { return; }
+  var $this = $(this),
+  $next = getItem($this,'next'),
+  num = $this.prevAll().length+1;
+
+  updateCounter(num);
+
+  timeout = setTimeout(function(){
+    showItem($this,$next);
+  }, 2000);
+},
+output = function(e){
+  clearTimeout(timeout);
+  manualMode = true;
+  var $currentItem = $items.filter(':visible'),
+  $itemToShow = getItem($currentItem, e.data.direction);
+  showItem($currentItem, $itemToShow);
+};
+
+$items.eq(0).fadeIn(100, fadeCallback);
+
+});
 </script>  

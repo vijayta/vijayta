@@ -245,7 +245,16 @@ html ul.topnav li ul.subnav li a:hover {
   #blog dd {
   	margin-bottom: 30px;
   }
-
+#slideshow_exe {
+	overflow: hidden;
+}
+#slideshow_exe { padding: 20px; border: 1px solid #ccc; border-radius: 10px; box-shadow: 1px 1px 5px #666; background: #fff; overflow: hidden; position: relative; height: 200px; }
+#slideshow_exe ul { position: absolute;left: 0; margin-bottom: 0;  }
+#slideshow_exe li { float: left;}
+#slideshow_exe img { float: left; width: 320px; margin-left: 20px; }
+#slideshow_exe .text { float: left; width: 530px; margin-left: 50px; margin-right: 20px; }
+#slideshow_exe .text p { padding-left: 0; }
+#slideshow_exe .counter { font-size: 18px; position: absolute; right: 20px; bottom: 20px; color: #ba0000; font-weight: bold; }
 /********* footer **********/  
 #footer { background: url(bg_footer.png) repeat-x left top; color: #515151;  line-height: 70px; overflow: hidden; }
 #footer .contact { float: right; margin-right: 3px;}
