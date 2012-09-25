@@ -1,0 +1,43 @@
+<div class="content ex_jquery">
+  <div class="holderTop">
+    <h1>live/delegate()<</h1>
+	  <p>Create a stack of divs. Initially an empty container should display</p>
+	  <ol>
+	  	<li> a button on right side says "add item", should add a div to the stack with an incremental number(starting from 1) </li>
+	  	<li>clicking any item in the stack should highlight that item</li>
+	  	<li>clicking the last item on the stack should remove that item from the stack
+
+</li>
+	  </ol>		  
+    <div class="solution">
+      <h3>Solution: </h3>  
+      
+      <div id="container">
+     <div>
+       <input type="button" value="Add Item" class="add" style="float: right;"/>
+     </div>
+   </div>    
+   <script type="text/javascript">
+     $('#container').delegate('.add', 'click', function(e) {
+       e.preventDefault();
+       var $count = $('p').length;
+       $(this).after("<p>" + $count + "</p>");
+       $(this).("<p>" + $count + "</p>");
+   });
+   $("#container").delegate("p", "click", function(){
+         $(this).addClass("highlight");
+   });
+   $('#container').on('click', function() {
+       $("p:first").remove();
+   });
+  </script>
+  <style>
+  .highlight{ background: yellow; }
+  </style>
+      
+        
+  </div>
+</div>  
+<script>
+  
+</script>  
