@@ -120,13 +120,27 @@
 			</div>
 
 			<div class="tab_content" id="tab9">
-			  <h2>Load External Content</h2>		      
+			  <h2>Load External Content</h2>	
+			  <p>Open the file /exercises/index.html in your browser. Use the file /exercises/js/load.js. Your task is to load the content of a blog item when a user clicks on the title of the item.</p>
+			  <ol>
+			  	<li>Create a target div after the headline for each blog post and store a reference to it on the headline element using $.fn.data.</li>
+			  	<li>Bind a click event to the headline that will use the $.fn.load method to load the appropriate content from /exercises/data/blog.html into the target div. Don't forget to prevent the default action of the click event.</li>
+			  </ol>	      
 			  <h3>Solution: </h3>	 
 			  <p class="bold"><%= link_to"Click here for Solution" , '/ex_jquery/exercise09'%></a>
 			</div>
 
 			<div class="tab_content" id="tab10">
-			  <h2>Load content using JSON</h2>		      
+			  <h2>Load content using JSON</h2>	
+			  <p>Open the file /exercises/index.html in your browser. Use the file /exercises/js/specials.js. Your task is to show the user details about the special for a given day when the user selects a day from the select dropdown.</p>
+			    <p>Append a target div after the form that's inside the #specials element; this will be where you put information about the special once you receive it.</p>
+			    <p>Bind to the change event of the select element; when the user changes the selection, send an Ajax request to /exercises/data/specials.json.</p>
+			    <ol>
+			    	<li>When the request returns a response, use the value the user selected in the select (hint: $.fn.val) to look up information about the special in the JSON response.</li>
+			    	<li>Add some HTML about the special to the target div you created.</li>
+			    	<li>Finally, because the form is now Ajax-enabled, remove the submit button from the form.</li>
+			    </ol>
+			    <p><span class="bold">NOTE:</span> that we're loading the JSON every time the user changes their selection. How could we change the code so we only make the request once, and then use a cached response when the user changes their choice in the select?</p>	      
 			  <h3>Solution: </h3>	 
 			  <p class="bold"><%= link_to"Click here for Solution" , '/ex_jquery/exercise10'%></a>
 			</div>
