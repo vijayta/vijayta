@@ -255,6 +255,8 @@ html ul.topnav li ul.subnav li a:hover {
 #slideshow_exe .text { float: left; width: 530px; margin-left: 50px; margin-right: 20px; }
 #slideshow_exe .text p { padding-left: 0; }
 #slideshow_exe .counter { font-size: 18px; position: absolute; right: 20px; bottom: 20px; color: #ba0000; font-weight: bold; }
+
+#container01 p { padding: 0 !important; margin-bottom: 5px !important; cursor: pointer;}
 /********* footer **********/  
 #footer { background: url(bg_footer.png) repeat-x left top; color: #515151;  line-height: 70px; overflow: hidden; }
 #footer .contact { float: right; margin-right: 3px;}
