@@ -15,6 +15,7 @@ Vijayta::Application.routes.draw do
   get "ex_jquery/exercise10"
   get "ex_jquery/exercise11"
   get "ex_jquery/exercise12"
+  get "ex_jquery/blog"
   get "pages/about"
   get "work/exercise01"
   get "work/exercise02"
