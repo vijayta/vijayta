@@ -1,6 +1,6 @@
 <div class="content ex_jquery">
   <div class="holderTop">
-    <h1>Load content using JSON<</h1>
+    <h1>Load content using JSON</h1>
     <p>Open the file /exercises/index.html in your browser. Use the file /exercises/js/specials.js. Your task is to show the user details about the special for a given day when the user selects a day from the select dropdown.</p>
     <p>Append a target div after the form that's inside the #specials element; this will be where you put information about the special once you receive it.</p>
     <p>Bind to the change event of the select element; when the user changes the selection, send an Ajax request to /exercises/data/specials.json.</p>
@@ -12,12 +12,64 @@
     <p><span class="bold">NOTE:</span> that we're loading the JSON every time the user changes their selection. How could we change the code so we only make the request once, and then use a cached response when the user changes their choice in the select?</p>
     <div class="solution">
       <h3>Solution: </h3>  
-      
+      <div id="specials">
+        <form action="exercise1.html" method="get">
+          <ul>
+            <li>
+              <select name="day">
+                <option value="" selected>Select</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="thursday">Thursday</option>
+                <option value"Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+              </select>
+            </li>
+            <li class="button">
+              <input type="button" value="Submit" />
+            </li>  
+          </ul>  
+        </form>  
+      </div>  
 
       
         
   </div>
 </div>  
 <script>
-  
+  $(document).ready(function(){
+    var $specials = $("#specials");
+    var cachedResponse = null;
+    var $desc = $('<div />').appendTo($specials);
+    var handleResponse = function(specials, val){
+      var daySpl = specials[val];
+      var html = "<h1>" + daySpl.title + "</h1>";
+      html += "<p>" + daySpl.desc + "</p>";
+      $desc.html(html);
+    };
+
+    var $select = $specials.find('select')
+    .change(function(){
+      var val = $select.val();
+      if(!val){
+        $desc.empty();
+        return;
+      }
+      if(cachedResponse){
+        handleResponse(cachedResponse, val);
+      }else {
+        $.ajax({
+          type : 'get',
+          dataType : 'json', 
+          url : 'specials.json',
+          sucess : function(specials){
+            cachedResponse = specials;
+            handleResponse(specials, val);
+          }
+        });
+      }
+    });
+    $specials.find("li.button").remove();
+  });
 </script>  
