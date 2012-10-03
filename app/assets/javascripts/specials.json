@@ -1,0 +1,31 @@
+{
+    "Sunday" : {
+        "title" : "This is Sunday.",
+        "desc" : "Every body loves sundays as the its the day for rest."
+    },
+    "Monday" : {
+        "title" : "This is Monday.",
+        "desc" : "This is the first working day of the week and most of us dont like it"
+    },
+    "Tuesday" : {
+        "title" : "This is Tuesday.",
+        "desc" : "There is nothing special about Tuesday"
+    },
+    "Wednesday" : {
+
+        "title" : "Its Wednessday",
+        "desc" : "This is the exact mid week, we are at..."
+    },
+    "Thursday" : {
+        "title" : "Thursday",
+        "desc" : "Start feeling good when we are neer the end of Thursday, as after that there is only friday as a working day. "
+    },
+    "Friday" : {
+        "title" : "Yeah It is friday",
+        "desc" : "Everybody loves friday."
+    },
+    "Saturday" : {
+        "title" : "Its Saturday Weekend starts",
+        "desc" : "The first lazy day of weekend"
+    }
+}

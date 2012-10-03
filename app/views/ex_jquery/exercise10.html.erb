@@ -13,16 +13,17 @@
     <div class="solution">
       <h3>Solution: </h3>  
       <div id="specials">
-        <form action="exercise1.html" method="get">
+        <form action="../ex_jquery/exercise10" method="get">
           <ul>
             <li>
               <select name="day">
                 <option value="" selected>Select</option>
+                <option value="Sunday">Sunday</option>
                 <option value="Monday">Monday</option>
                 <option value="Tuesday">Tuesday</option>
                 <option value="Wednesday">Wednesday</option>
-                <option value="thursday">Thursday</option>
-                <option value"Friday">Friday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
                 <option value="Saturday">Saturday</option>
               </select>
             </li>
@@ -31,45 +32,41 @@
             </li>  
           </ul>  
         </form>  
-      </div>  
-
-      
-        
+      </div>   
   </div>
 </div>  
 <script>
-  $(document).ready(function(){
-    var $specials = $("#specials");
+  $(document).ready(function() {
+    var $specials = $('#specials');
     var cachedResponse = null;
-    var $desc = $('<div />').appendTo($specials);
-    var handleResponse = function(specials, val){
-      var daySpl = specials[val];
-      var html = "<h1>" + daySpl.title + "</h1>";
-      html += "<p>" + daySpl.desc + "</p>";
-      $desc.html(html);
+    var $desc = $('<div/>').appendTo($specials);
+    var handleResponse = function(specials, val) {
+        var daySpl = specials[val];
+        var html = '<h1>' + daySpl.title + '</h1>';
+        html += '<p>' + daySpl.desc + '</p>';
+        $desc.html(html);
     };
-
     var $select = $specials.find('select')
-    .change(function(){
-      var val = $select.val();
-      if(!val){
-        $desc.empty();
-        return;
-      }
-      if(cachedResponse){
-        handleResponse(cachedResponse, val);
-      }else {
-        $.ajax({
-          type : 'get',
-          dataType : 'json', 
-          url : 'specials.json',
-          sucess : function(specials){
-            cachedResponse = specials;
-            handleResponse(specials, val);
-          }
+        .change(function() {
+            var val = $select.val();
+            if (!val) {
+                $desc.empty();
+                return;
+            }
+            if (cachedResponse) {
+                handleResponse(cachedResponse, val);
+            } else {
+                $.ajax({
+                    type : 'get',
+                    dataType : 'json',
+                    url : 'specials.json',
+                    success : function(specials) {
+                        cachedResponse = specials;
+                        handleResponse(specials, val);
+                    }
+                });
+            }
         });
-      }
-    });
-    $specials.find("li.button").remove();
-  });
+  $specials.find('li.button').remove();
+});
 </script>  
