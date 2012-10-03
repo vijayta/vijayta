@@ -39,7 +39,7 @@
   $(document).ready(function() {
     var $specials = $('#specials');
     var cachedResponse = null;
-    var $desc = $('<div/>').appendTo($specials);
+    var $desc = $('<div class="jsonContent"/>').appendTo($specials);
     var handleResponse = function(specials, val) {
         var daySpl = specials[val];
         var html = '<h1>' + daySpl.title + '</h1>';
@@ -59,7 +59,7 @@
                 $.ajax({
                     type : 'get',
                     dataType : 'json',
-                    url : 'specials.json',
+                    url : '../ex_jquery/specials.json',
                     success : function(specials) {
                         cachedResponse = specials;
                         handleResponse(specials, val);
