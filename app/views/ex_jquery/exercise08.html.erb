@@ -40,7 +40,7 @@
 </div>  
 <script>
 $(document).ready(function(){
-  var timeout, manualMode = false; 
+  var timeout = false; 
   var $slides = $("#slides").prependTo('#slideshow_exe');
   var $items = $slides.find('li').hide(),
 
@@ -64,25 +64,14 @@ $(document).ready(function(){
     });
   },
 fadeCallback = function(){
-  if(manualMode) { return; }
   var $this = $(this),
   $next = getItem($this,'next'),
   num = $this.prevAll().length+1;
-
   updateCounter(num);
-
   timeout = setTimeout(function(){
     showItem($this,$next);
   }, 2000);
-},
-output = function(e){
-  clearTimeout(timeout);
-  manualMode = true;
-  var $currentItem = $items.filter(':visible'),
-  $itemToShow = getItem($currentItem, e.data.direction);
-  showItem($currentItem, $itemToShow);
-};
-
+}
 $items.eq(0).fadeIn(100, fadeCallback);
 
 });

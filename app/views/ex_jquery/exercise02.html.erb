@@ -93,7 +93,7 @@
     $('#move').click(moveClass);
 
     function submit01(){
-      $("#specials select").parent().next().find('#btnSubmit');
+      $("#specials select").closest("form").find('#btnSubmit');
       alert("form is submitted");
     }
     $('#btnSubmit').click(submit01);
