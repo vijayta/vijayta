@@ -27,8 +27,8 @@
    $("#container01").delegate("p", "click", function(){
          $(this).addClass("highlight");
    });
-   $('#container01').delegate('p:last','click', function() {
-       $("p:last").remove();
+   $('#container01').delegate('p:last-child','click', function() {
+       $("p:last").remove(); 
    });
   </script>
   <style>
