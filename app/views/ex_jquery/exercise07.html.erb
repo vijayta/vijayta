@@ -37,10 +37,10 @@
 </div>  
 <script>
   $(document).ready(function(){
-	$("ul.topnav li a").hover(function() { 
+	$("ul.topnav li a").on("mouseover" , function() { 
 		$(this).parent().find("ul.subnav").slideDown('fast').show();
         $(this).addClass("subhover"); 
-		$(this).parent().hover(function() {
+		$(this).parent().on("mouseout" , function() {
 		}, function(){	
 			$(this).parent().find("ul.subnav").slideUp('slow'); 
             $('ul.topnav li a').removeClass("subhover"); 
