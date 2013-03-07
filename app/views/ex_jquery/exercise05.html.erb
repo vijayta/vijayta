@@ -59,6 +59,7 @@
     $(".module:first").show(); 
     $("ul.tabs01 li").click(function() {
     $("ul.tabs01 li").removeClass('current'); 
+    $(".module").hide(); 
     $(this).addClass('current'); 
     $(".modules").hide(); 
     var activeTab = $(this).find("a").attr("href"); 

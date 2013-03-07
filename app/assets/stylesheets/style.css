@@ -230,9 +230,12 @@ html ul.topnav li ul.subnav li a:hover {
     margin-bottom: 0 !important;
   }
   .tabs01 li a { display: block; padding: 8px 15px; }
-  .moduleHolder  { background: #fff; padding: 20px; }
-  .moduleHolder p { padding: 5px 0 20px !important; }
-
+.moduleHolder  { background: #fff; padding: 20px; }
+.moduleHolder p { padding: 5px 0 20px !important; }
+.moduleHolder .module{ display: none; }
+.moduleHolder .module .current{
+	display: block;
+}
   #blog {
   	overflow: hidden;
   }
