@@ -7,7 +7,7 @@
   }
   table th{ font-weight: bold; padding: 5px; background: #555; color: #fff; }
   table td { padding: 5px; border-bottom: 1px solid #555; }
-  .even {
+  .odd {
     background: #accfe3;
   }
 
@@ -65,12 +65,16 @@
           <p><label for="last_name">Last Name</label><input type="text" id="last_name" /></p> 
 
           <h4>Point four</h4>
-          <div class="visible">Visible</div>
-          <div class="hidden" style="display:none;">hiddentext</div>
-          <div class="visible">Visible</div>
-          <div class="hidden"  style="display:none;">hidden</div>
-          <div class="visible">Visible</div>
-          <input type="button" value="click me to count hidden elements" id="button01"/>
+          <div class="counting">
+            <div>Visible</div>
+            <div style="display:none;">hiddentext</div>
+            <div>Visible</div>
+            <div style="display:none;">hidden</div>
+            <div>Visible</div>
+            <div style="display: none;">Visible</div>
+
+            <input type="button" value="click me to count hidden elements" id="button01"/>
+          </div>  
 
           <h4>Point Five</h4>
           <div class="images">
@@ -137,7 +141,7 @@
               <td>vj@gmail.com</td>
             </tr>  
           </table>  <br />
-          <div><input type="button" value="click me view even rows " id="button03"/></div>
+          <div><input type="button" value="click me view odd rows " id="button03"/></div>
 
   </div>
 
@@ -152,7 +156,7 @@
   $("label[for='first_name']").css('color','red')
   $(function(){
     function clickme(){
-      count = $('div').filter(':hidden').length;
+      count = $('.counting > *').filter(':hidden').length;
       alert(count);  
     }
     $('#button01').click(clickme);
@@ -164,7 +168,7 @@
     $('#button02').click(altcount);
 
     function even01(){
-      count = $('tr:even').addClass('even');
+      count = $('tr:odd').addClass('odd');
 
     }
     $('#button03').click(even01);
