@@ -75,7 +75,7 @@
     $('#removeOdd').click(removeOdd);
 
     function addCont01(){
-      $('div.module').append('<h2>This is another heading added by jQuery</h2><p>This is another paragraph added by jQuery.');
+      $('div.module').last().append('<h2>This is another heading added by jQuery</h2><p>This is another paragraph added by jQuery.');
     }  
     $('#addCont').click(addCont01);
 
